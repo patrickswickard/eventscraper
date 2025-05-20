@@ -14,13 +14,14 @@ def scrape_page_showspace(request_url):
 
   resultlines = result.splitlines()
 
-  print(result_single_line)
+#  print(result_single_line)
 # find and report
   list_of_matching_strings = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",result_single_line)
+  first_matching_string = list_of_matching_strings[0]
+#  print(list_of_matching_strings)
 
-  print(list_of_matching_strings)
-
-  for result in list_of_matching_strings:
+#  for result in list_of_matching_strings:
+  for result in [first_matching_string]:
     list_of_links = re.findall(r"href=\"(.*?)\"",result)
     single_link = re.search(r"href=\"(.*?)\"",result)
     subsite_url = single_link.group(1)
@@ -33,7 +34,7 @@ def scrape_page_showspace(request_url):
     #print(subsite_result)
     #print(list_of_matching_strings)
     print()
-    print("*****************************************************")
+#    print("*****************************************************")
     print()
     #print(subsite_result)
     subsite_result_single_line = ' '.join(subsite_result.splitlines())
@@ -56,7 +57,6 @@ def scrape_page_showspace(request_url):
       event_date_text = "THISDAY"
       print(event_date_text)
 
-      print(event)
       event_time_match = re.search(r"<p>.*?\.\s+(\w.*?(?:AM|PM))\s*[,.@]",event)
       if event_time_match:
         event_time_text = event_time_match.group(1)
@@ -69,17 +69,19 @@ def scrape_page_showspace(request_url):
         if event_location_text:
           print(event_location_text)
 
-      #event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@]\s+(.*?)\s+@",event)
-      #event_cost_text = event_cost_match.group(1)
-      #if event_cost_text:
-      #  print(event_cost_text)
-      #else:
-      #  print("DUNNO")
+      event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@]\s+(.*?)\s+@",event)
+      if event_cost_match:
+        event_cost_text = event_cost_match.group(1)
+        print(event_cost_text)
+      else:
+        print("DUNNO")
 
-      #event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
-      #event_description_text = event_description_match.group(1)
-      event_description_text = "NONE"
-      print(event_description_text)
+      event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
+      if event_description_match:
+        event_description_text = event_description_match.group(1)
+        print(event_description_text)
+      else:
+        print("NONE")
 
 def scrape_page_peabody(request_url):
   result = requests.get(request_url).text
