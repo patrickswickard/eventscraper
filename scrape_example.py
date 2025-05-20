@@ -29,59 +29,56 @@ def scrape_page_showspace(request_url):
     subsite_result = requests.get(subsite_url).text
     list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",result_single_line)
 
-    #print(single_link)
-    #print('**************************************')
-    #print(subsite_result)
-    #print(list_of_matching_strings)
-    print()
-#    print("*****************************************************")
-    print()
-    #print(subsite_result)
     subsite_result_single_line = ' '.join(subsite_result.splitlines())
-    list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",subsite_result_single_line)
-    for event in list_of_events:
+    daylist = re.findall(r"(<h2>.*?<p><br></p>)",subsite_result_single_line)
+    for thisday in daylist:
+      #list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",subsite_result_single_line)
+      event_date_match = re.search(r"<h2>(.*?)</h2>",subsite_result_single_line)
+      event_date_text = event_date_match.group(1)
+      list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
+      for event in list_of_events:
 
-      print('HERE IS AN EVENT')
-      event_title_match = re.search(r"<p>(.*?)</p>",event)
-      event_title_text = event_title_match.group(1)
-      print(event_title_text)
+        print('HERE IS AN EVENT')
+        event_title_match = re.search(r"<p>(.*?)</p>",event)
+        event_title_text = event_title_match.group(1)
+        print(event_title_text)
 
-      event_url_match = 'FIXME'
-      event_url_text = subsite_url
-      print(event_url_text)
+        event_url_match = 'FIXME'
+        event_url_text = subsite_url
+        print(event_url_text)
 
-      #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
-      #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
-      #event_date_text = event_date_match.group(1)
-      #event_date_text = re.sub(r"\s+"," ",event_date_text)
-      event_date_text = "THISDAY"
-      print(event_date_text)
+        #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
+        #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
+        #event_date_text = event_date_match.group(1)
+        #event_date_text = re.sub(r"\s+"," ",event_date_text)
+        #event_date_text = "THISDAY"
+        print(event_date_text)
 
-      event_time_match = re.search(r"<p>.*?\.\s+(\w.*?(?:AM|PM))\s*[,.@]",event)
-      if event_time_match:
-        event_time_text = event_time_match.group(1)
-        if event_time_text:
-          print(event_time_text)
+        event_time_match = re.search(r"<p>.*?\.\s+(\w.*?(?:AM|PM))\s*[,.@]",event)
+        if event_time_match:
+          event_time_text = event_time_match.group(1)
+          if event_time_text:
+            print(event_time_text)
 
-      event_location_match = re.search(r"@\s+(.*)",event)
-      if event_location_match:
-        event_location_text = event_location_match.group(1)
-        if event_location_text:
-          print(event_location_text)
+        event_location_match = re.search(r"@\s+(.*)",event)
+        if event_location_match:
+          event_location_text = event_location_match.group(1)
+          if event_location_text:
+            print(event_location_text)
 
-      event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@]\s+(.*?)\s+@",event)
-      if event_cost_match:
-        event_cost_text = event_cost_match.group(1)
-        print(event_cost_text)
-      else:
-        print("DUNNO")
+        event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@]\s+(.*?)\s+@",event)
+        if event_cost_match:
+          event_cost_text = event_cost_match.group(1)
+          print(event_cost_text)
+        else:
+          print("DUNNO")
 
-      event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
-      if event_description_match:
-        event_description_text = event_description_match.group(1)
-        print(event_description_text)
-      else:
-        print("NONE")
+        event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
+        if event_description_match:
+          event_description_text = event_description_match.group(1)
+          print(event_description_text)
+        else:
+          print("NONE")
 
 def scrape_page_peabody(request_url):
   result = requests.get(request_url).text
