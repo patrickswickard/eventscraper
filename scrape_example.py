@@ -18,7 +18,7 @@ def scrape_page_showspace(request_url):
 # find and report
   list_of_matching_strings = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",result_single_line)
   first_matching_string = list_of_matching_strings[0]
-#  print(list_of_matching_strings)
+  #print(list_of_matching_strings)
 
 #  for result in list_of_matching_strings:
   for result in [first_matching_string]:
@@ -30,12 +30,23 @@ def scrape_page_showspace(request_url):
     list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",result_single_line)
 
     subsite_result_single_line = ' '.join(subsite_result.splitlines())
-    daylist = re.findall(r"(<h2>.*?<p><br></p>)",subsite_result_single_line)
+    #daylist = re.findall(r"(<h2>.*?<p><br></p>)",subsite_result_single_line)
+    daylist = re.split(r"<p><br></p>",subsite_result_single_line)
+    print("DAYLIST")
+    print(str(len(daylist)))
+    print(daylist[1])
+    print("THAT WAS THE DAYLIST")
+    print(daylist)
     for thisday in daylist:
       #list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",subsite_result_single_line)
-      event_date_match = re.search(r"<h2>(.*?)</h2>",subsite_result_single_line)
+      #event_date_match = re.search(r"<h2>(.*?)</h2>",subsite_result_single_line)
+      event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       event_date_text = event_date_match.group(1)
       list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
+      print("EVENTDATETEXT")
+      print(event_date_text)
+      print("THAT WAS THE EVENTDATETEXT")
+      print(str(len(list_of_events)))
       for event in list_of_events:
 
         print('HERE IS AN EVENT')
