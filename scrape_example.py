@@ -1,6 +1,7 @@
 """Simple requests demo"""
 import requests
 import re
+from datetime import datetime
 
 request_url1 = 'https://peabody.jhu.edu/events/photo/page/1/'
 request_url2 = 'https://peabody.jhu.edu/events/photo/page/2/'
@@ -65,11 +66,21 @@ def scrape_page_showspace(request_url):
         #event_date_text = "THISDAY"
         print(event_date_text)
 
-        event_time_match = re.search(r"<p>.*?\.\s+(\w.*?(?:AM|PM))\s*[,.@]",event)
+        event_time_match = re.search(r"<p>.*?\.\s+(\d.*?(?:AM|PM))\s*[,.@&-]",event)
         if event_time_match:
           event_time_text = event_time_match.group(1)
           if event_time_text:
             print(event_time_text)
+            fulldate = event_date_text + ' ' + event_time_text
+            print(fulldate)
+            if ':' in event_time_text:
+              print('eventtimetext')
+              print(event_time_text)
+              print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I:%M%p')))
+            else:
+              print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I%p')))
+          else:
+            print(str(datetime.strptime(event_date_text, '%A, %B %d, %Y')))
 
         event_location_match = re.search(r"@\s+(.*)",event)
         if event_location_match:
