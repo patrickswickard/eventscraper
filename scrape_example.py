@@ -9,86 +9,62 @@ request_url3 = 'https://peabody.jhu.edu/events/photo/page/3/'
 request_url4 = 'https://baltshowplace.tumblr.com/'
 
 def scrape_page_showspace(request_url):
-  result = requests.get(request_url).text
+  firstpage = requests.get(request_url).text
 
-  result_single_line = ' '.join(result.splitlines())
+  firstpage_single_line = ' '.join(firstpage.splitlines())
 
-  resultlines = result.splitlines()
+  firstpagelines = firstpage.splitlines()
 
-#  print(result_single_line)
 # find and report
-  list_of_matching_strings = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",result_single_line)
-  first_matching_string = list_of_matching_strings[0]
-  #print(list_of_matching_strings)
+  list_of_matching_months = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",firstpage_single_line)
+  first_matching_month = list_of_matching_months[0]
 
-#  for result in list_of_matching_strings:
-  for result in [first_matching_string]:
-    list_of_links = re.findall(r"href=\"(.*?)\"",result)
-    single_link = re.search(r"href=\"(.*?)\"",result)
-    subsite_url = single_link.group(1)
-    print(subsite_url)
-    subsite_result = requests.get(subsite_url).text
-    list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",result_single_line)
+  for thismonth in [first_matching_month]:
+    list_of_links = re.findall(r"href=\"(.*?)\"",thismonth)
+    single_link = re.search(r"href=\"(.*?)\"",thismonth)
+    thismonth_url = single_link.group(1)
+    print(thismonth_url)
+    # clicking through to current month's results
+    subsite_result = requests.get(thismonth_url).text
+    list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",firstpage_single_line)
 
     subsite_result_single_line = ' '.join(subsite_result.splitlines())
-    #daylist = re.findall(r"(<h2>.*?<p><br></p>)",subsite_result_single_line)
     daylist = re.split(r"<p><br></p>",subsite_result_single_line)
-    print("DAYLIST")
-    print(str(len(daylist)))
-    print(daylist[1])
-    print("THAT WAS THE DAYLIST")
-    print(daylist)
     for thisday in daylist:
-      #list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",subsite_result_single_line)
-      #event_date_match = re.search(r"<h2>(.*?)</h2>",subsite_result_single_line)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       event_date_text = event_date_match.group(1)
       list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
-      print("EVENTDATETEXT")
-      print(event_date_text)
-      print("THAT WAS THE EVENTDATETEXT")
-      print(str(len(list_of_events)))
       for event in list_of_events:
-
         print('HERE IS AN EVENT')
         event_title_match = re.search(r"<p>(.*?)</p>",event)
         event_title_text = event_title_match.group(1)
         print(event_title_text)
 
         event_url_match = 'FIXME'
-        event_url_text = subsite_url
+        event_url_text = thismonth_url
         print(event_url_text)
 
-        #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
-        #event_date_match = re.search(r"<div\s+class=\"tse-date-details\">\s*(.*?)</div>",subsite_result_single_line)
-        #event_date_text = event_date_match.group(1)
-        #event_date_text = re.sub(r"\s+"," ",event_date_text)
-        #event_date_text = "THISDAY"
         print(event_date_text)
 
         event_time_match = re.search(r"<p>.*?\.\s+(\d.*?(?:AM|PM))\s*[,.@&-]",event)
         if event_time_match:
           event_time_text = event_time_match.group(1)
           if event_time_text:
-            print(event_time_text)
             fulldate = event_date_text + ' ' + event_time_text
-            print(fulldate)
             if ':' in event_time_text:
-              print('eventtimetext')
-              print(event_time_text)
               print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I:%M%p')))
             else:
               print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I%p')))
           else:
             print(str(datetime.strptime(event_date_text, '%A, %B %d, %Y')))
 
-        event_location_match = re.search(r"@\s+(.*)",event)
+        event_location_match = re.search(r"@\s+(.*)</p>",event)
         if event_location_match:
           event_location_text = event_location_match.group(1)
           if event_location_text:
             print(event_location_text)
 
-        event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@]\s+(.*?)\s+@",event)
+        event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@&-]\s+(.*?)\s+@",event)
         if event_cost_match:
           event_cost_text = event_cost_match.group(1)
           print(event_cost_text)
