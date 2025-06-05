@@ -25,11 +25,11 @@ def scrape_page_showspace(request_url):
     thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
-    subsite_result = requests.get(thismonth_url).text
+    thismonth_result = requests.get(thismonth_url).text
     list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",firstpage_single_line)
 
-    subsite_result_single_line = ' '.join(subsite_result.splitlines())
-    daylist = re.split(r"<p><br></p>",subsite_result_single_line)
+    thismonth_result_single_line = ' '.join(thismonth_result.splitlines())
+    daylist = re.split(r"<p><br></p>",thismonth_result_single_line)
     for thisday in daylist:
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       event_date_text = event_date_match.group(1)
@@ -71,7 +71,7 @@ def scrape_page_showspace(request_url):
         else:
           print("DUNNO")
 
-        event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
+        event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",thismonth_result_single_line)
         if event_description_match:
           event_description_text = event_description_match.group(1)
           print(event_description_text)
