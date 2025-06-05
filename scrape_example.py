@@ -8,6 +8,17 @@ request_url2 = 'https://peabody.jhu.edu/events/photo/page/2/'
 request_url3 = 'https://peabody.jhu.edu/events/photo/page/3/'
 request_url4 = 'https://baltshowplace.tumblr.com/'
 
+def parse_event_datetime(event_date_text,event_time_text):
+  if event_time_text:
+    fulldatetext = event_date_text + ' ' + event_time_text
+    if ':' in event_time_text:
+      fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I:%M%p')
+    else:
+      fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I%p')
+  else:
+    fulldatetime = datetime.strptime(event_date_text, '%A, %B %d, %Y')
+  return fulldatetime
+
 def scrape_page_showspace(request_url):
   firstpage = requests.get(request_url).text
 
@@ -49,14 +60,23 @@ def scrape_page_showspace(request_url):
         event_time_match = re.search(r"<p>.*?\.\s+(\d.*?(?:AM|PM))\s*[,.@&-]",event)
         if event_time_match:
           event_time_text = event_time_match.group(1)
-          if event_time_text:
-            fulldate = event_date_text + ' ' + event_time_text
-            if ':' in event_time_text:
-              print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I:%M%p')))
-            else:
-              print(str(datetime.strptime(fulldate, '%A, %B %d, %Y %I%p')))
-          else:
-            print(str(datetime.strptime(event_date_text, '%A, %B %d, %Y')))
+          #if event_time_text:
+          #  fulldatetext = event_date_text + ' ' + event_time_text
+          #  if ':' in event_time_text:
+          #    fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I:%M%p')
+          #    #print(str(datetime.strptime(fulldatetext, '%A, %B %d, %Y %I:%M%p')))
+          #    print(str(fulldatetime))
+          #  else:
+          #    fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I%p')
+          #    #print(str(datetime.strptime(fulldatetext, '%A, %B %d, %Y %I%p')))
+          #    print(str(fulldatetime))
+          #else:
+          #  fulldatetime = datetime.strptime(event_date_text, '%A, %B %d, %Y')
+          #  #print(str(datetime.strptime(event_date_text, '%A, %B %d, %Y')))
+          #  print(str(fulldatetime))
+          fulldatetime = 'hi'
+          fulldatetime = parse_event_datetime(event_date_text,event_time_text)
+          print(fulldatetime)
 
         event_location_match = re.search(r"@\s+(.*)</p>",event)
         if event_location_match:
