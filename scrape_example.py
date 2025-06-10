@@ -60,20 +60,6 @@ def scrape_page_showspace(request_url):
         event_time_match = re.search(r"<p>.*?\.\s+(\d.*?(?:AM|PM))\s*[,.@&-]",event)
         if event_time_match:
           event_time_text = event_time_match.group(1)
-          #if event_time_text:
-          #  fulldatetext = event_date_text + ' ' + event_time_text
-          #  if ':' in event_time_text:
-          #    fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I:%M%p')
-          #    #print(str(datetime.strptime(fulldatetext, '%A, %B %d, %Y %I:%M%p')))
-          #    print(str(fulldatetime))
-          #  else:
-          #    fulldatetime = datetime.strptime(fulldatetext, '%A, %B %d, %Y %I%p')
-          #    #print(str(datetime.strptime(fulldatetext, '%A, %B %d, %Y %I%p')))
-          #    print(str(fulldatetime))
-          #else:
-          #  fulldatetime = datetime.strptime(event_date_text, '%A, %B %d, %Y')
-          #  #print(str(datetime.strptime(event_date_text, '%A, %B %d, %Y')))
-          #  print(str(fulldatetime))
           fulldatetime = 'hi'
           fulldatetime = parse_event_datetime(event_date_text,event_time_text)
           print(fulldatetime)
