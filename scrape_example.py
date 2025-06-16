@@ -33,8 +33,9 @@ def scrape_page_showspace(request_url):
     'Barcocina':'UNKNOWN',
     'Black Cherry Puppet Theater':'UNKNOWN',
     'Bliss Meadows (5105 Plainfield Avenue)':'UNKNOWN',
-    'Bloom\'s':'UNKNOWN',
-    'Bogus Gallery (1511 Guildford Ave)':'UNKNOWN',
+    'Bliss Meadows (5105 Plainfield Ave)':'UNKNOWN',
+    'Bloom’s':'UNKNOWN',
+    'Bogus Gallery (1511 Guilford Ave)':'UNKNOWN',
     'Book Thing':'UNKNOWN',
     'CFG Arena':'UNKNOWN',
     'Canton Waterfront Park':'UNKNOWN',
@@ -51,8 +52,8 @@ def scrape_page_showspace(request_url):
     'DM bands for address':'UNKNOWN',
     'DM inmysoulzine for address':'UNKNOWN',
     'Druid Hill Park':'UNKNOWN',
-    'Ema\'s Corner':'UNKNOWN',
-    'Ema\'Corner (33 W North Ave)':'UNKNOWN',
+    'Ema’s Corner':'UNKNOWN',
+    'Ema’s Corner (33 W North Ave)':'UNKNOWN',
     'Hippodrome':'UNKNOWN',
     'Holy Frijoles':'UNKNOWN',
     'House of Chiefs':'UNKNOWN',
@@ -60,7 +61,7 @@ def scrape_page_showspace(request_url):
     'Le Mondo':'UNKNOWN',
     'Lith Hall':'UNKNOWN',
     'Lwnsphere (4518 Raspe Ave)':'UNKNOWN',
-    'Mercury Theater':'UNKNOWN',
+    'Mercury Theatre':'UNKNOWN',
     'Metro':'UNKNOWN',
     'Mobtown Ballroom':'UNKNOWN',
     'Monument City Brewing':'UNKNOWN',
@@ -76,7 +77,7 @@ def scrape_page_showspace(request_url):
     'Peabody Heights':'UNKNOWN',
     'Pier Six':'UNKNOWN',
     'Powerplant':'UNKNOWN',
-    'Red Emma\'s':'UNKNOWN',
+    'Red Emma’s':'UNKNOWN',
     'Reverb':'UNKNOWN',
     'Roland Water Tower':'UNKNOWN',
     'Shamrock Inn':'UNKNOWN',
@@ -158,6 +159,11 @@ def scrape_page_showspace(request_url):
           if event_location_text:
             print(event_location_text)
             location_set.add(event_location_text)
+
+        event_street_address_match = "ERROR"
+        if event_location_text:
+          event_street_address_text = showspace_location_dict[event_location_text]
+          print('ERROR')
 
         event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@&-]\s+(.*?)\s+@",event)
         if event_cost_match:
