@@ -24,6 +24,7 @@ def scrape_page_showspace(request_url):
   showspace_location_dict = {
     '1627 E Fort Ave':'1627 E Fort Ave',
     '1750 Union Ave':'1750 Union Ave',
+    '1915 Maryland Avenue':'1915 Maryland Ave',
     '200 St. Paul Place':'200 St. Paul Place',
     '2010 Clipper Park Rd Suite 105':'2010 Clipper Park Rd',
     '21 W. Mt Royal 5th Floor':'21 W Mt Royal Ave',
@@ -52,6 +53,7 @@ def scrape_page_showspace(request_url):
     'Baltimore City Hall':'100 Holliday St',
     'Baltimore Safe Haven':'2117 N Charles St',
     'Baltimore Science Fiction Society':'3310 E Baltimore St',
+    'Baltimore Spirits Company':'1700 W 41st St',
     'Barcocina':'1629 Thames St',
     'Big Blue House (DM bands for address)':'UNKNOWN',
     'Black Cherry Puppet Theater':'1115 Hollins St',
@@ -70,12 +72,14 @@ def scrape_page_showspace(request_url):
     'Central Library (400 Cathedral St)':'400 Cathedral St',
     'Ceremony Coffee Harbor East':'1312 Point St',
     'Charles St':'1 N Charles St',
+    'Charles Theater':'1711 N Charles St',
     'Charm City Books':'426 W Franklin St',
     'Charm City Skatepark':'4401 O\'Donnell St',
     'Checkerspot Brewing':'1421 Ridgely St',
     'Chilton St &amp; Hillen Road':'Chilton St & Hillen Road',
     'Church on the Square':'1025 S Potomac St',
     'Clifton Park':'2701 St Lo Dr',
+    'Clovr Collective (2010 Clipper Park Road)':'2010 Clipper Park Road',
     'Club 603':'UNKNOWN',
     'Club Car':'12 W North Ave',
     'Club Car.':'12 W North Ave',
@@ -87,6 +91,7 @@ def scrape_page_showspace(request_url):
     'Dangerously Delicious (810 36th St)':'810 36th St',
     'Design Distillery (1414 Key Hwy)':'1414 Key Hwy',
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
+    'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
     'DM beatitude.bmore for address':'UNKNOWN',
     'DM digitalxscape for address':'UNKNOWN',
@@ -116,6 +121,7 @@ def scrape_page_showspace(request_url):
     'Homewood Friends Meeting House':'3107 N Charles St',
     'House of Chiefs':'4603 York Rd',
     'Idle Hour (201 E Fort Ave)':'201 E Fort Ave',
+    'Inner Harbor Amphitheater':'200 E Pratt St',
     'Inner Harbor Wine Village':'399 E Pratt St',
     'Keystone Korner':'1350 Lancaster St',
     'Le Mondo':'406 N Howard St',
@@ -136,6 +142,7 @@ def scrape_page_showspace(request_url):
     'Micky’s Joint':'5402 Harford Rd',
     'Mobtown Ballroom':'30 W North Ave',
     'Mobtown Ballroom &amp; Club Car &amp; Royal Blue &amp; Night Owl':'30 W North Ave',
+    'Mobtown Brewery':'4015 Foster Ave',
     'Monument City Brewing':'1 N Haven St',
     'Monument City Brewing</strike>':'1 N Haven St',
     'Morsebegers':'713 Frederick Rd',
@@ -149,6 +156,7 @@ def scrape_page_showspace(request_url):
     'Normals Books':'425 E 31st St',
     'Old Major':'900 S Carey St',
     'Onle Vibez (3241 Belar Rd)':'3241 Belair Rd',
+    'Openworks (1400 Greenmount Ave)':'1400 Greenmount Ave',
     'Orion Studios':'2903 Whittington Ave #C',
     'Ottobar':'2549 N Howard St',
     'OttobaR':'2549 N Howard St',
@@ -235,6 +243,7 @@ def scrape_page_showspace(request_url):
     'Waverly Brewing Company':'1625 Union Ave',
     'Waverly United Methodist':'644 E 33rd St',
     'Wax Atlas':'5523 Harford Rd',
+    'Weiss Imports &amp; Domestics (1160 Homestead St)':'1160 Homestead St',
     'Wiggle Room (3000 Falls Rd)':'3000 Falls Rd',
     'Wiggle Room (DM bands for address)':'3000 Falls Rd',
     'Wine Collective':'1700 W 41st St',
@@ -248,6 +257,7 @@ def scrape_page_showspace(request_url):
   showspace_location_coords = {
     '1627 E Fort Ave':'39.2680623,-76.5917014',
     '1750 Union Ave':'39.3332615,-76.643971',
+    '1915 Maryland Avenue':'39.3116095,-76.6174162',
     '200 St. Paul Place':'39.2914004,-76.6141673',
     '2010 Clipper Park Rd Suite 105':'39.3319754,-76.6456497',
     '21 W. Mt Royal 5th Floor':'39.3051217,-76.6171648',
@@ -276,6 +286,7 @@ def scrape_page_showspace(request_url):
     'Baltimore City Hall':'39.2908833,-76.6107116',
     'Baltimore Safe Haven':'39.3138024,-76.616473',
     'Baltimore Science Fiction Society':'39.2926035,-76.5704674',
+    'Baltimore Spirits Company':'39.3358424,-76.6443726',
     'Barcocina':'39.2811117,-76.5944726',
     'Big Blue House (DM bands for address)':'UNKNOWN',
     'Black Cherry Puppet Theater':'39.2872152,-76.635728',
@@ -294,12 +305,14 @@ def scrape_page_showspace(request_url):
     'Central Library (400 Cathedral St)':'39.2945237,-76.6173559',
     'Ceremony Coffee Harbor East':'39.2809255,-76.5984532',
     'Charles St':'39.2901346,-76.6148319',
+    'Charles Theater':'39.3093254,-76.6159938',
     'Charm City Books':'39.29498,-76.6225029',
     'Charm City Skatepark':'39.2806041,-76.5587337',
     'Checkerspot Brewing':'39.2908816,-76.610759',
     'Chilton St &amp; Hillen Road':'39.3277025,-76.5897824',
     'Church on the Square':'39.2802511,-76.5737227',
     'Clifton Park':'39.320833, -76.582778',
+    'Clovr Collective (2010 Clipper Park Road)':'39.3319754,-76.6456497',
     'Club 603':'UNKNOWN',
     'Club Car':'39.3113936,-76.6170449`',
     'Club Car.':'39.3113936,-76.6170449`',
@@ -311,6 +324,7 @@ def scrape_page_showspace(request_url):
     'Dangerously Delicious (810 36th St)':'39.3313957,-76.6299642',
     'Design Distillery (1414 Key Hwy)':'39.2730828,-76.6021748',
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
+    'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
     'DM beatitude.bmore for address':'UNKNOWN',
     'DM digitalxscape for address':'UNKNOWN',
@@ -340,6 +354,7 @@ def scrape_page_showspace(request_url):
     'Homewood Friends Meeting House':'39.3263695,-76.6170207',
     'House of Chiefs':'39.3443441,-76.6092286',
     'Idle Hour (201 E Fort Ave)':'39.2726198,-76.6098886',
+    'Inner Harbor Amphitheater':'39.2873581,-76.6114433',
     'Inner Harbor Wine Village':'39.2864464,-76.6102909',
     'Keystone Korner':'39.2824611,-76.5979203',
     'Le Mondo':'39.2941263,-76.6198852',
@@ -360,6 +375,7 @@ def scrape_page_showspace(request_url):
     'Micky’s Joint':'39.3514225,-76.5624988',
     'Mobtown Ballroom':'39.3113947,-76.6177064',
     'Mobtown Ballroom &amp; Club Car &amp; Royal Blue &amp; Night Owl':'39.3113947,-76.6177064',
+    'Mobtown Brewery':'39.2843704,-76.5625121',
     'Monument City Brewing':'39.2929307,-76.5624118',
     'Monument City Brewing</strike>':'39.2929307,-76.5624118',
     'Morsebegers':'39.2717408,-76.7318923',
@@ -373,6 +389,7 @@ def scrape_page_showspace(request_url):
     'Normals Books':'39.3259512,-76.609908',
     'Old Major':'39.2819356,-76.6373744',
     'Onle Vibez (3241 Belar Rd)':'39.3212898,-76.5736983',
+    'Openworks (1400 Greenmount Ave)':'39.3060824,-76.608924',
     'Orion Studios':'39.2597122,-76.6549785',
     'Ottobar':'39.3188574,-76.6196694',
     'OttobaR':'39.3188574,-76.6196694',
@@ -459,6 +476,7 @@ def scrape_page_showspace(request_url):
     'Waverly Brewing Company':'39.3318378,-76.6415299',
     'Waverly United Methodist':'39.3287727,-76.60665',
     'Wax Atlas':'39.3525967,-76.5609185',
+    'Weiss Imports &amp; Domestics (1160 Homestead St)':'39.3246781,-76.6011816',
     'Wiggle Room (3000 Falls Rd)':'39.3230125,-76.6305904',
     'Wiggle Room (DM bands for address)':'39.3230125,-76.6305904',
     'Wine Collective':'39.3358424,-76.6443726',
@@ -478,7 +496,7 @@ def scrape_page_showspace(request_url):
 
 # find and report
   list_of_matching_months = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",firstpage_single_line)
-  first_matching_month = list_of_matching_months[7]
+  first_matching_month = list_of_matching_months[8]
 
   for thismonth in [first_matching_month]:
     list_of_links = re.findall(r"href=\"(.*?)\"",thismonth)
@@ -493,55 +511,56 @@ def scrape_page_showspace(request_url):
     daylist = re.split(r"<p><br></p>",thismonth_result_single_line)
     for thisday in daylist:
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
-      event_date_text = event_date_match.group(1)
-      list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
-      for event in list_of_events:
-        print('HERE IS AN EVENT')
-        event_title_match = re.search(r"<p>(.*?)</p>",event)
-        event_title_text = event_title_match.group(1)
-        print(event_title_text)
+      if event_date_match:
+        event_date_text = event_date_match.group(1)
+        list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
+        for event in list_of_events:
+          print('HERE IS AN EVENT')
+          event_title_match = re.search(r"<p>(.*?)</p>",event)
+          event_title_text = event_title_match.group(1)
+          print(event_title_text)
 
-        event_url_match = 'FIXME'
-        event_url_text = thismonth_url
-        print(event_url_text)
+          event_url_match = 'FIXME'
+          event_url_text = thismonth_url
+          print(event_url_text)
 
-        print(event_date_text)
+          print(event_date_text)
 
-        event_time_match = re.search(r"<p>.*?\.\s+(\d+\D*(?:AM|PM))\s*[,.@&-]",event)
-        if event_time_match:
-          event_time_text = event_time_match.group(1)
-          print(event_time_text)
-          event_time_text = re.sub(r"\b15PM","5PM",event_time_text)
-          event_time_text = re.sub(r"\b20PM","8PM",event_time_text)
-          print(event_time_text)
-          fulldatetime = parse_event_datetime(event_date_text,event_time_text)
-          print(fulldatetime)
+          event_time_match = re.search(r"<p>.*?\.\s+(\d+\D*(?:AM|PM))\s*[,.@&-]",event)
+          if event_time_match:
+            event_time_text = event_time_match.group(1)
+            print(event_time_text)
+            event_time_text = re.sub(r"\b15PM","5PM",event_time_text)
+            event_time_text = re.sub(r"\b20PM","8PM",event_time_text)
+            print(event_time_text)
+            fulldatetime = parse_event_datetime(event_date_text,event_time_text)
+            print(fulldatetime)
 
-        event_location_match = re.search(r"@\s+(.*?)\s*</p>",event)
-        if event_location_match:
-          event_location_text = event_location_match.group(1)
+          event_location_match = re.search(r"@\s+(.*?)\s*</p>",event)
+          if event_location_match:
+            event_location_text = event_location_match.group(1)
+            if event_location_text:
+              print(event_location_text)
+              location_set.add(event_location_text)
+
+          event_street_address_text = "ERROR"
           if event_location_text:
-            print(event_location_text)
-            location_set.add(event_location_text)
+            event_street_address_text = showspace_location_dict[event_location_text]
+            print(event_street_address_text)
 
-        event_street_address_text = "ERROR"
-        if event_location_text:
-          event_street_address_text = showspace_location_dict[event_location_text]
-          print(event_street_address_text)
+          event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@&-]\s+(.*?)\s+@",event)
+          if event_cost_match:
+            event_cost_text = event_cost_match.group(1)
+            print(event_cost_text)
+          else:
+            print("DUNNO")
 
-        event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@&-]\s+(.*?)\s+@",event)
-        if event_cost_match:
-          event_cost_text = event_cost_match.group(1)
-          print(event_cost_text)
-        else:
-          print("DUNNO")
-
-        event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",thismonth_result_single_line)
-        if event_description_match:
-          event_description_text = event_description_match.group(1)
-          print(event_description_text)
-        else:
-          print("NONE")
+          event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",thismonth_result_single_line)
+          if event_description_match:
+            event_description_text = event_description_match.group(1)
+            print(event_description_text)
+          else:
+            print("NONE")
 #  print(location_set)
 #  location_list = list(location_set)
 #  location_list.sort()
