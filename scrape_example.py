@@ -154,6 +154,7 @@ def scrape_page_showspace(request_url):
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
     'DM beatitude.bmore for address':'UNKNOWN',
+    'DM Darkroom for address':'UNKNOWN',
     'DM digitalxscape for address':'UNKNOWN',
     'DM Digital Xscape for address':'UNKNOWN',
     'DM inmysoulzine for address':'UNKNOWN',
@@ -174,6 +175,7 @@ def scrape_page_showspace(request_url):
     'Good Neighbor Design Garage':'3827 Falls Rd',
     'Goucher College (Trustees Hall)':'1021 Dulaney Valley Rd, Towson, MD',
     'Goucher Glass Studio Trustees Hall':'1021 Dulaney Valley Rd, Towson, MD',
+    'Grn Drgn Cafe (118 West Mulberry St)':'118 W Mulberry St',
     'Guilford Hall Brewery':'1611 Guilford Ave',
     'Hampden':'1101 W 36th St',
     'Hargrove':'2225 Hargrove Ave',
@@ -243,6 +245,7 @@ def scrape_page_showspace(request_url):
     'National Aquarium':'501 E Pratt St',
     'Night Owl Gallery':'1735 Maryland Ave',
     'No Land Beyond':'2125 Maryland Ave',
+    'NoMüNoMü':'709 N Howard St',
     'Normal’s':'425 E 31st St',
     'Normal’s Books':'425 E 31st St',
     'Normals':'425 E 31st St',
@@ -256,6 +259,7 @@ def scrape_page_showspace(request_url):
     'OttobaR':'2549 N Howard St',
     'Ottobar Upstairs':'2549 N Howard St',
     'Outside (DM bands for address)':'UNKNOWN',
+    'Pariah Brewing':'1700 Union Ave',
     'Parkway Theatre':'5 W North Ave',
     'Parris Underground (497 Ritchie Highway Suite C)':'497 Ritchie Hwy',
     'Patterson Park':'Patterson Park',
@@ -311,7 +315,9 @@ def scrape_page_showspace(request_url):
     'St. Mary’s Park':'601 N Paca St',
     'Station North':'1 W North Ave',
     'Stem &amp; Vine':'326 N Charles St',
+    'Studio 10':'530 S Conkling St',
     'Submersive HQ (3523 Buena Vista Ave)':'3523 Buena Vista Ave',
+    'Tacos Tijuana (1709 Edgewood Rd)':'1709 Edgewood Rd',
     'The Biddle (1 W Biddle St)':'1 W Biddle St',
     'The Bluebird':'3602 Hickory Ave',
     'The Bone Orchard (DM bands for address)':'UNKNOWN',
@@ -324,6 +330,7 @@ def scrape_page_showspace(request_url):
     'The Compound':'2239 Kirk Ave',
     'The Depot':'1728 N Charles St',
     'The Empanada Lady':'10 South St',
+    'The Eubie (847 N. Howard)':'847 N Howard St',
     'The Forest (DM ___by_my_reanimated_corpse for address)':'UNKNOWN',
     'The Forest (DM bands for address)':'UNKNOWN',
     'The Forest (DM bmorezinefest for address)':'UNKNOWN',
@@ -346,7 +353,9 @@ def scrape_page_showspace(request_url):
     'The Office (300 W. Pratt St)':'300 W Pratt St',
     'The Ottobar':'2549 N Howard St',
     'The Peale':'225 Holliday St',
+    'The Point':'1738 Thames St',
     'The Recher':'512 York Rd',
+    'The Reservoir':'404 York Rd',
     'The Royal Blue':'1733 Maryland Ave',
     'The Shamrock Inn':'6044 Harford Rd',
     'The Skatepark (DM bands for address)':'UNKNOWN',
@@ -533,6 +542,7 @@ def scrape_page_showspace(request_url):
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
     'DM beatitude.bmore for address':'UNKNOWN',
+    'DM Darkroom for address':'UNKNOWN',
     'DM digitalxscape for address':'UNKNOWN',
     'DM Digital Xscape for address':'UNKNOWN',
     'DM inmysoulzine for address':'UNKNOWN',
@@ -553,6 +563,7 @@ def scrape_page_showspace(request_url):
     'Good Neighbor Design Garage':'39.3345962,-76.6357922',
     'Goucher College (Trustees Hall)':'39.4087096,-76.5956544',
     'Goucher Glass Studio Trustees Hall':'39.4087096,-76.5956544',
+    'Grn Drgn Cafe (118 West Mulberry St)':'39.2941715,-76.618045',
     'Guilford Hall Brewery':'39.3084005,-76.612048',
     'Hampden':'39.3309487,-76.6338843',
     'Hargrove':'39.29038,-76.61219',
@@ -621,6 +632,7 @@ def scrape_page_showspace(request_url):
     'National Aquarium':'39.2847578,-76.60769',
     'Night Owl Gallery':'39.3096273,-76.6176346',
     'No Land Beyond':'39.3138566,-76.6178227',
+    'NoMüNoMü':'39.2980067,-76.6197818',
     'Normal’s':'39.3259512,-76.609908',
     'Normal’s Books':'39.3259512,-76.609908',
     'Normals':'39.3259512,-76.609908',
@@ -634,6 +646,7 @@ def scrape_page_showspace(request_url):
     'OttobaR':'39.3188574,-76.6196694',
     'Ottobar Upstairs':'39.3188574,-76.6196694',
     'Outside (DM bands for address)':'UNKNOWN',
+    'Pariah Brewing':'39.3321582,-76.6434225',
     'Parkway Theatre':'39.29038,-76.61219',
     'Parris Underground (497 Ritchie Highway Suite C)':'39.2346832,-76.6119605',
     'Patterson Park':'39.2889335,-76.5788048',
@@ -688,7 +701,9 @@ def scrape_page_showspace(request_url):
     'St. Mary’s Park':'39.2958078,-76.6224647',
     'Station North':'39.3107411,-76.6166913',
     'Stem &amp; Vine':'39.2932699,-76.6155328',
+    'Studio 10':'39.2857918,-76.5674009',
     'Submersive HQ (3523 Buena Vista Ave)':'39.3291366,-76.6381614',
+    'Tacos Tijuana (1709 Edgewood Rd)':'39.4516097,-76.3069406',
     'The Biddle (1 W Biddle St)':'39.3032402,-76.6167844',
     'The Bluebird':'39.331345,-76.6340367',
     'The Bone Orchard (DM bands for address)':'UNKNOWN',
@@ -701,6 +716,7 @@ def scrape_page_showspace(request_url):
     'The Compound':'39.3151509,-76.6049917',
     'The Depot':'39.3096068,-76.6167329',
     'The Empanada Lady':'39.2892322,-76.6112179',
+    'The Eubie (847 N. Howard)':'39.2996724,-76.6199036',
     'The Forest (DM ___by_my_reanimated_corpse for address)':'UNKNOWN',
     'The Forest (DM bands for address)':'UNKNOWN',
     'The Forest (DM bmorezinefest for address)':'UNKNOWN',
@@ -723,7 +739,9 @@ def scrape_page_showspace(request_url):
     'The Office (300 W. Pratt St)':'39.2866853,-76.6196986',
     'The Ottobar':'39.3188574,-76.6196694',
     'The Peale':'39.291864,-76.610052',
+    'The Point':'39.2820998,-76.5913462',
     'The Recher':'39.4009454,-76.6021005',
+    'The Reservoir':'39.3996,-76.6024742',
     'The Royal Blue':'39.3095848,-76.6176354',
     'The Shamrock Inn':'39.3583692,-76.5565543',
     'The Skatepark (DM bands for address)':'UNKNOWN',
@@ -792,7 +810,23 @@ def scrape_page_showspace(request_url):
     list_of_links = re.findall(r"href=\"(.*?)\"",thismonth)
     single_link = re.search(r"href=\"(.*?)\"",thismonth)
     # FIXME OVERRIDE
-    thismonth_url = 'https://baltshowplace.tumblr.com/post/742995647288999936/march-2024'
+    monthlisthere = [
+      'https://baltshowplace.tumblr.com/post/740598285591527424/february-2024',
+      'https://baltshowplace.tumblr.com/post/738051898274430976/january-2024',
+      'https://baltshowplace.tumblr.com/post/734896694276276224/december-2023',
+      'https://baltshowplace.tumblr.com/post/732115473125244928/november-2023',
+      'https://baltshowplace.tumblr.com/post/729295254033989632/october-2023',
+      'https://baltshowplace.tumblr.com/post/727137330486509569/september-2023',
+      'https://baltshowplace.tumblr.com/post/723875701736013824/august-2023',
+      'https://baltshowplace.tumblr.com/post/721226733690535936/july-2023',
+      'https://baltshowplace.tumblr.com/post/718170190266974208/june-2023',
+      'https://baltshowplace.tumblr.com/post/715529145102254080/may-2023',
+      'https://baltshowplace.tumblr.com/post/712533186762113024/april-2023',
+      'https://baltshowplace.tumblr.com/post/710109247541805056/march-2023',
+      'https://baltshowplace.tumblr.com/post/707300923405467648/february-2023',
+      'https://baltshowplace.tumblr.com/post/704765880227217408/january-2023',
+    ]
+    thismonth_url = monthlisthere[0]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -808,6 +842,7 @@ def scrape_page_showspace(request_url):
         list_of_events = re.findall(r"(<p>\s*\w.*?</p>)",thisday)
         for event in list_of_events:
           print('HERE IS AN EVENT')
+          event = re.sub(r"\@ \+ Jiffy","+ Jiffy",event)
           event_title_match = re.search(r"<p>(.*?)</p>",event)
           event_title_text = event_title_match.group(1)
           print(event_title_text)
