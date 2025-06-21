@@ -77,6 +77,7 @@ def scrape_page_showspace(request_url):
     '3000 Falls Rd':'3000 Falls Rd',
     '3001 East Dr.':'3001 East Dr.',
     '307 Northway':'307 Northway',
+    '3137 Eastern Ave. Baltimore':'3137 Eastern Ave',
     '321 E. 28th St':'321 E. 28th St',
     '3209 Rosalie Ave':'3209 Rosalie Ave',
     '3300 Clipper Mill Rd':'3300 Clipper Mill Rd',
@@ -431,6 +432,7 @@ def scrape_page_showspace(request_url):
     'Royal Blue':'1733 Maryland Ave',
     'Royal Blue  <br />':'1733 Maryland Ave',
     'Royal Rumble':'UNKNOWN',
+    'Sandy Hill Skatepark':'3326 Bero Rd',
     'Saunter Corner Bar':'1801 E Lombard St',
     'Secret Beach':'UNKNOWN',
     'Secret Beach (DM bands for address)':'UNKNOWN',
@@ -455,6 +457,7 @@ def scrape_page_showspace(request_url):
     'St. Luke’s Church (800 W 36th St)':'800 W 36th St',
     'St. Mary’s Park':'601 N Paca St',
     'St Mary’s Park':'601 N Paca St',
+    'St Mary’s Restaurant (120 W 25th St)':'120 W. 25th St',
     'St. Mary’s Upstairs (120 W. 25th St)':'120 W. 25th St',
     'Station North':'1 W North Ave',
     'Stem &amp; Vine':'326 N Charles St',
@@ -514,6 +517,7 @@ def scrape_page_showspace(request_url):
     'The Rockwell':'702 S Broadway',
     'The Royal Blue':'1733 Maryland Ave',
     'The Ruins (DM bands for address)':'UNKNOWN',
+    'The Ruins (DM nfc.underground for address)':'UNKNOWN',
     'The Shamrock Inn':'6044 Harford Rd',
     'The Skatepark (DM bands for address)':'UNKNOWN',
     'The Undercroft':'2629 Huntington Ave',
@@ -634,6 +638,7 @@ def scrape_page_showspace(request_url):
     '3000 Falls Rd':'39.3230125,-76.6305904',
     '3001 East Dr.':'39.3209325,-76.6345425',
     '307 Northway':'39.3427942,-76.6114545',
+    '3137 Eastern Ave. Baltimore':'39.286253,-76.5717162',
     '321 E. 28th St':'39.3219778,-76.6119561',
     '32nd St &amp; Brentwood':'39.303726,-76.609288',
     '32nd St &amp; Brentwood Ave':'39.303726,-76.609288',
@@ -990,6 +995,7 @@ def scrape_page_showspace(request_url):
     'Royal Blue':'39.3095848,-76.6176354',
     'Royal Blue  <br />':'39.3095848,-76.6176354',
     'Royal Rumble':'UNKNOWN',
+    'Sandy Hill Skatepark':'39.2352341,-76.6504397',
     'Saunter Corner Bar':'39.2903041,-76.5915473',
     'Secret Beach':'UNKNOWN',
     'Secret Beach (DM bands for address)':'UNKNOWN',
@@ -1014,6 +1020,7 @@ def scrape_page_showspace(request_url):
     'St. Luke’s Church (800 W 36th St)':'39.331478,-76.6295992',
     'St. Mary’s Park':'39.2958078,-76.6224647',
     'St Mary’s Park':'39.2958078,-76.6224647',
+    'St Mary’s Restaurant (120 W 25th St)':'39.3179679,-76.6191586',
     'St. Mary’s Upstairs (120 W. 25th St)':'39.3179679,-76.6191586',
     'Station North':'39.3107411,-76.6166913',
     'Stem &amp; Vine':'39.2932699,-76.6155328',
@@ -1073,6 +1080,7 @@ def scrape_page_showspace(request_url):
     'The Rockwell':'39.283313,-76.5937752',
     'The Royal Blue':'39.3095848,-76.6176354',
     'The Ruins (DM bands for address)':'UNKNOWN',
+    'The Ruins (DM nfc.underground for address)':'UNKNOWN',
     'The Shamrock Inn':'39.3583692,-76.5565543',
     'The Skatepark (DM bands for address)':'UNKNOWN',
     'The Undercroft':'39.4995455,-76.6430605',
@@ -1184,7 +1192,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/674595075474571264/february-2022',
       '',
     ]
-    thismonth_url = monthlisthere[14]
+    thismonth_url = monthlisthere[15]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
