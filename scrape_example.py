@@ -97,6 +97,7 @@ def scrape_page_showspace(request_url):
     '3126 Weaver Ave':'3126 Weaver Ave',
     '3137 Eastern Ave. Baltimore':'3137 Eastern Ave',
     '321 E. 28th St':'321 E. 28th St',
+    '322 W. Baltimore St.':'322 W Baltimore St',
     '3209 Rosalie Ave':'3209 Rosalie Ave',
     '3300 Clipper Mill Rd':'3300 Clipper Mill Rd',
     '3311 Ailsa Ave':'3311 Ailsa Ave',
@@ -272,6 +273,7 @@ def scrape_page_showspace(request_url):
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
     'Digital Xscape (DM for Address)':'UNKNOWN',
     'Disconsin (DM bands for address)':'UNKNOWN',
+    'Disconsin (message bands for address)':'UNKNOWN',
     'DM @andieisonline for tix/address':'UNKNOWN',
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
@@ -471,6 +473,7 @@ def scrape_page_showspace(request_url):
     'Openworks (1400 Greenmount Ave)':'1400 Greenmount Ave',
     'Orion Studios':'2903 Whittington Ave #C',
     'Ottobar':'2549 N Howard St',
+    'Ottobar&nbsp;':'2549 N Howard St',
     'OttobaR':'2549 N Howard St',
     'Ottobar Upstairs':'2549 N Howard St',
     'Ottobar Upstairs<br>Metroschock. 9PM, $10 @ Metro Gallery':'2549 N Howard St',
@@ -557,6 +560,7 @@ def scrape_page_showspace(request_url):
     'Shake\'n\'Bake Family Fun Center':'1601 Pennsylvania Ave',
     'Shake &amp; Bake Family Fun Center':'1601 Pennsylvania Ave',
     'Shamrock Inn':'6044 Harford Rd',
+    'Sidebar':'218 E Lexington St',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Sidedoor   (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Side Door (DM bands for address)':'UNKNOWN',
@@ -799,6 +803,7 @@ def scrape_page_showspace(request_url):
     '3126 Weaver Ave':'39.336104,-76.5680201',
     '3137 Eastern Ave. Baltimore':'39.286253,-76.5717162',
     '321 E. 28th St':'39.3219778,-76.6119561',
+    '322 W. Baltimore St.':'39.2894465,-76.6204915',
     '32nd St &amp; Brentwood':'39.303726,-76.609288',
     '32nd St &amp; Brentwood Ave':'39.303726,-76.609288',
     '32nd St &amp; Brentwood Ave.':'39.303726,-76.609288',
@@ -978,6 +983,7 @@ def scrape_page_showspace(request_url):
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
     'Digital Xscape (DM for Address)':'UNKNOWN',
     'Disconsin (DM bands for address)':'UNKNOWN',
+    'Disconsin (message bands for address)':'UNKNOWN',
     'DM @andieisonline for tix/address':'UNKNOWN',
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
@@ -1176,6 +1182,7 @@ def scrape_page_showspace(request_url):
     'Openworks (1400 Greenmount Ave)':'39.3060824,-76.608924',
     'Orion Studios':'39.2597122,-76.6549785',
     'Ottobar':'39.3188574,-76.6196694',
+    'Ottobar&nbsp;':'39.3188574,-76.6196694',
     'OttobaR':'39.3188574,-76.6196694',
     'Ottobar Upstairs':'39.3188574,-76.6196694',
     'Ottobar Upstairs<br>Metroschock. 9PM, $10 @ Metro Gallery':'39.3188574,-76.6196694',
@@ -1261,6 +1268,7 @@ def scrape_page_showspace(request_url):
     'Shake\'n\'Bake Family Fun Center':'39.3032633,-76.633751',
     'Shake &amp; Bake Family Fun Center':'39.3032633,-76.633751',
     'Shamrock Inn':'39.3583692,-76.5565543',
+    'Sidebar':'39.2914058,-76.611273',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Sidedoor   (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Side Door (DM bands for address)':'UNKNOWN',
@@ -1472,20 +1480,33 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/680026459916599296/april-2022',
       'https://baltshowplace.tumblr.com/post/677037663343214592/march-2022',
       'https://baltshowplace.tumblr.com/post/674595075474571264/february-2022',
-      '',
+      'https://baltshowplace.tumblr.com/post/672057481921511424/january-2022-saturday-january-1-2022-baltimore',
     ]
-    thismonth_url = monthlisthere[23]
+    thismonth_url = monthlisthere[25]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
     thismonth_result = requests.get(thismonth_url).text
     list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",firstpage_single_line)
     thismonth_result_single_line = ' '.join(thismonth_result.splitlines())
-    daylist = re.split(r"<p><br\s*\/?></p>",thismonth_result_single_line)
+    print(len(thismonth_result_single_line))
+    weirdsub1 = False
+    #if re.match(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
+    #if re.match(r"J",thismonth_result_single_line):
+    if re.search(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
+      print('this will be weird')
+      daylist = re.findall(r"(<h2>(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*?</p>)",thismonth_result_single_line)
+    else:
+      print('this will be normal')
+      daylist = re.split(r"<p><br\s*\/?></p>",thismonth_result_single_line)
+    print('list of days')
+    print(len(daylist))
     for thisday in daylist:
       # idiot stuff happening 2022-06-*
       thisday = re.sub(r"<br /><br />","</p>",thisday)
       thisday = re.sub(r"March 5, 2022<br />","March 5, 2022",thisday)
+      thisday = re.sub(r"February 1, 2022<br />","February 1, 2022",thisday)
+      thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
         event_date_text = event_date_match.group(1)
