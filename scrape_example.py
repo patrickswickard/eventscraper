@@ -271,6 +271,7 @@ def scrape_page_showspace(request_url):
     'Dick’s Halfway Inn':'8013 Philadelphia Rd',
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
     'Digital Xscape (DM for Address)':'UNKNOWN',
+    'Disconsin (DM bands for address)':'UNKNOWN',
     'DM @andieisonline for tix/address':'UNKNOWN',
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
@@ -434,6 +435,7 @@ def scrape_page_showspace(request_url):
     'Morsberger’s':'713 Frederick Rd',
     'Mosaic':'34 Market Pl',
     'Mother’s':'1113 S Charles St',
+    'Motorhouse':'120 W North Ave',
     'Motor House':'120 W North Ave',
     'Mt. Royal Soaps':'2740 Huntingdon Ave',
     'Mt. Vernon':'1 W Mt Vernon Pl',
@@ -459,9 +461,11 @@ def scrape_page_showspace(request_url):
     'North Ave':'1 W North Ave',
     'North Ave &amp; Charles St':'1 W North Ave',
     'North Ave Market':'30 W North Ave',
+    'North Ave. Market':'30 W North Ave',
     'Of Love And Regret':'1028 S Conkling St',
     'Old Line Spirits':'200 S Janney St',
     'Old Major':'900 S Carey St',
+    'Old Major (900 S. Carey St.)':'900 S Carey St',
     'Onle Vibez (3241 Belar Rd)':'3241 Belair Rd',
     'Open Works':'1400 Greenmount Ave',
     'Openworks (1400 Greenmount Ave)':'1400 Greenmount Ave',
@@ -610,6 +614,7 @@ def scrape_page_showspace(request_url):
     'The Copycat (6th floor)':'309 Federal St',
     'The Crown':'1910 N Charles St',
     'The Crown (both floors)':'1910 N Charles St',
+    'The Crown.':'1910 N Charles St',
     'The Depot':'1728 N Charles St',
     'The Empanada Lady':'10 South St',
     'The Eubie (847 N. Howard)':'847 N Howard St',
@@ -672,6 +677,7 @@ def scrape_page_showspace(request_url):
     'Union Craft Brewing&nbsp;':'1700 W 41st St',
     'Union Square Park':'31 S Gilmor St',
     'Union Square Park (31 S. Gilmor St)':'31 S Gilmor St',
+    'University of Baltimore (Wright Theater)':'21 W Mt Royal Ave',
     'Uranus (DM bands for address)':'UNKNOWN',
     'Village Learning Place (2521 St. Paul St)':'2521 St. Paul St',
     'War Memorial Plaza (101 N. Gay St)':'101 N Gay St',
@@ -971,6 +977,7 @@ def scrape_page_showspace(request_url):
     'Dick’s Halfway Inn':'39.3208662,-76.5142262',
     'Digital Xscape (DM digitalxscape for address)':'UNKNOWN',
     'Digital Xscape (DM for Address)':'UNKNOWN',
+    'Disconsin (DM bands for address)':'UNKNOWN',
     'DM @andieisonline for tix/address':'UNKNOWN',
     'DM artists for address':'UNKNOWN',
     'DM bands for address':'UNKNOWN',
@@ -1133,6 +1140,7 @@ def scrape_page_showspace(request_url):
     'Morsberger’s':'39.2717408,-76.7318923',
     'Mosaic':'39.2895897,-76.6072583',
     'Mother’s':'39.2763396,-76.614194',
+    'Motorhouse':'39.3113403,-76.6189024',
     'Motor House':'39.3113403,-76.6189024',
     'Mt. Royal Soaps':'39.3204076,-76.6228252',
     'Mt. Vernon':'39.2971564,-76.6160096',
@@ -1158,9 +1166,11 @@ def scrape_page_showspace(request_url):
     'North Ave':'39.3107411,-76.6166913',
     'North Ave &amp; Charles St':'39.3107411,-76.6166913',
     'North Ave Market':'39.3113947,-76.6177064',
+    'North Ave. Market':'39.3113947,-76.6177064',
     'Of Love And Regret':'39.2807077,-76.5669775',
     'Old Line Spirits':'39.290412,-76.56089',
     'Old Major':'39.2819356,-76.6373744',
+    'Old Major (900 S. Carey St.)':'39.2819356,-76.6373744',
     'Onle Vibez (3241 Belar Rd)':'39.3212898,-76.5736983',
     'Open Works':'39.3060824,-76.608924',
     'Openworks (1400 Greenmount Ave)':'39.3060824,-76.608924',
@@ -1308,6 +1318,7 @@ def scrape_page_showspace(request_url):
     'The Copycat (6th floor)':'39.2750422,-76.6131621',
     'The Crown':'39.3117857,-76.6168609',
     'The Crown (both floors)':'39.3117857,-76.6168609',
+    'The Crown.':'39.3117857,-76.6168609',
     'The Depot':'39.3096068,-76.6167329',
     'The Empanada Lady':'39.2892322,-76.6112179',
     'The Eubie (847 N. Howard)':'39.2996724,-76.6199036',
@@ -1370,6 +1381,7 @@ def scrape_page_showspace(request_url):
     'Union Craft Brewing&nbsp;':'39.3358424,-76.6443726',
     'Union Square Park':'39.2868225,-76.6412783',
     'Union Square Park (31 S. Gilmor St)':'39.2868225,-76.6412783',
+    'University of Baltimore (Wright Theater)':'39.3051217,-76.6171648',
     'Uranus (DM bands for address)':'UNKNOWN',
     'Village Learning Place (2521 St. Paul St)':'39.3186131,-76.6151688',
     'War Memorial Plaza (101 N. Gay St)':'39.2909756,-76.6083613',
@@ -1462,7 +1474,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/674595075474571264/february-2022',
       '',
     ]
-    thismonth_url = monthlisthere[22]
+    thismonth_url = monthlisthere[23]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1473,6 +1485,7 @@ def scrape_page_showspace(request_url):
     for thisday in daylist:
       # idiot stuff happening 2022-06-*
       thisday = re.sub(r"<br /><br />","</p>",thisday)
+      thisday = re.sub(r"March 5, 2022<br />","March 5, 2022",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
         event_date_text = event_date_match.group(1)
