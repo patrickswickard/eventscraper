@@ -24,6 +24,7 @@ def scrape_page_showspace(request_url):
   showspace_location_dict = {
     '<span style="color: #444444">Fadensonnen</span>':'3 W 23rd St',
     '&nbsp;Druid Hill Park':'900 Druid Park Lake Dr',
+    '&nbsp;Roland Water Tower (4210 Roland Ave)':'4210 Roland Ave',
     '1 E. Baltimore St':'1 E Baltimore St',
     '6 E. Franklin St':'6 E. Franklin St',
     '12 to 30 West North Ave':'12 W North Ave',
@@ -231,9 +232,11 @@ def scrape_page_showspace(request_url):
     'Chilton St &amp; Hillen Road':'Chilton St & Hillen Road',
     'Chimney Swallow (DM bands for address)':'UNKNOWN',
     'Church on the Square':'1025 S Potomac St',
+    'City Beach':'UNKNOWN',
     'City of Gods':'1118 Hollins St',
     'Clifton Bandshell':'2401 N Rose St',
     'Clifton Park':'2701 St Lo Dr',
+    'Clifton Park Bandshell':'2401 N Rose St',
     'Clifton Pleasure Club':'2803 Grindon Ave',
     'Clovr Collective':'2010 Clipper Park Road',
     'Clovr Collective (2010 Clipper Park Road)':'2010 Clipper Park Road',
@@ -302,6 +305,7 @@ def scrape_page_showspace(request_url):
     'Douglas Memorial Church':'1325 Madison Ave',
     'Douglas Memorial Community Church':'1325 Madison Ave',
     'Downtown':'1 N Charles St',
+    'Dream Mega Lounge (10 S. Calvert St.)':'10 S Calvert St',
     'Druid Hill Park':'900 Druid Park Lake Dr',
     'Druid Hill Park Pool':'900 Druid Park Lake Dr',
     'El Bufalo':'2921 O\'Donnell St',
@@ -428,6 +432,7 @@ def scrape_page_showspace(request_url):
     'Metro':'1700 N Charles St',
     'Metro Gallery':'1700 N Charles St',
     'Mi Comalito':'2101 N Charles St',
+    'Mi Comalito (2101 N Charles St)':'2101 N Charles St',
     'MICA Game Lab (100 Dolphin St)':'100 Dolphin St',
     'MICA Meyerhoff Gallery':'1303 W Mount Royal Ave',
     'Mickey’s Joint':'5402 Harford Rd',
@@ -444,6 +449,7 @@ def scrape_page_showspace(request_url):
     'Monument Brewing':'1 N Haven St',
     'Monument City Brewing':'1 N Haven St',
     'Monument City Brewing</strike>':'1 N Haven St',
+    'Montebello Terrace (4500 Harford Road)':'4500 Harford Road',
     'Morsebegers':'713 Frederick Rd',
     'Morsbergers':'713 Frederick Rd',
     'Morsberger’s':'713 Frederick Rd',
@@ -482,6 +488,7 @@ def scrape_page_showspace(request_url):
     'Old Major':'900 S Carey St',
     'Old Major (900 S. Carey St.)':'900 S Carey St',
     'Old York Lot (outdoors - message bands for address)':'UNKNOWN',
+    'Oliver Brewing Company (Outside)':'4216 Shannon Dr',
     'Onle Vibez (3241 Belar Rd)':'3241 Belair Rd',
     'Online on Twitch':'UNKNOWN',
     'Open Works':'1400 Greenmount Ave',
@@ -521,6 +528,7 @@ def scrape_page_showspace(request_url):
     'Penn &amp; Baker St.':'2300 Pennsylvania Ave',
     'Phlote (300 W Pratt St)':'300 W Pratt St',
     'Phlote (300 W Pratt St 3rd floor)':'300 W Pratt St',
+    'Phoenix Art Yard (1320 Bayard St)':'1320 Bayard St',
     'Phoenix Cultural':'2325 E Monument St',
     'Pier Six':'731 Eastern Ave',
     'Pier Six Pavilion':'731 Eastern Ave',
@@ -653,6 +661,7 @@ def scrape_page_showspace(request_url):
     'The Hargrove (2225 Hargrove Aly)':'2225 Hargrove St',
     'The Hargrove':'2225 Hargrove St',
     'The Hargrove (DM artists for address)':'39.3150763,-76.6145339',
+    'The Hippodrome':'12 N Eutaw St',
     'The H.O.L.E. (DM bmorezinefest for address)':'UNKNOWN',
     'The Hole (DM bands below for address)':'UNKNOWN',
     'The Hole (DM bands for address)':'UNKNOWN',
@@ -740,6 +749,7 @@ def scrape_page_showspace(request_url):
     'Wyman Park Dell':'2929 N Charles St',
     'Ye Olde Emerald Tavern':'8300 Harford Rd',
     'YNOT Lot':'1900 N Charles St',
+    'Ynot Lot':'1900 N Charles St',
     'York Rd &amp; Woodbourne Ave':'5401 York Rd',
     'Zen West':'5916 York Rd',
     'Zika Farm':'UNKNOWN',
@@ -759,6 +769,7 @@ def scrape_page_showspace(request_url):
   showspace_location_coords = {
     '<span style="color: #444444">Fadensonnen</span>':'39.3015459,-76.616743',
     '&nbsp;Druid Hill Park':'39.317045,-76.636339',
+    '&nbsp;Roland Water Tower (4210 Roland Ave)':'39.3412196,-76.6349848',
     '1 E. Baltimore St':'39.2891667,-76.6147222',
     '6 E. Franklin St':'39.2952971,-76.6151344',
     '12 to 30 West North Ave':'39.3113936,-76.6170449',
@@ -966,9 +977,11 @@ def scrape_page_showspace(request_url):
     'Chilton St &amp; Hillen Road':'39.3277025,-76.5897824',
     'Chimney Swallow (DM bands for address)':'UNKNOWN',
     'Church on the Square':'39.2802511,-76.5737227',
+    'City Beach':'UNKNOWN',
     'City of Gods':'39.2878265,-76.6358536',
     'Clifton Bandshell':'39.3178606,-76.5822994',
     'Clifton Park':'39.320833, -76.582778',
+    'Clifton Park Bandshell':'39.3178606,-76.5822994',
     'Clifton Pleasure Club':'39.3436071,-76.5736541',
     'Clovr Collective':'39.3319754,-76.6456497',
     'Clovr Collective (2010 Clipper Park Road)':'39.3319754,-76.6456497',
@@ -1037,6 +1050,7 @@ def scrape_page_showspace(request_url):
     'Douglas Memorial Church':'39.30345,-76.6272507',
     'Douglas Memorial Community Church':'39.30345,-76.6272507',
     'Downtown':'39.2901346,-76.6148319',
+    'Dream Mega Lounge (10 S. Calvert St.)':'39.2891579,-76.612667',
     'Druid Hill Park':'39.317045,-76.636339',
     'Druid Hill Park Pool':'39.317045,-76.636339',
     'El Bufalo':'39.2798903,-76.5745794',
@@ -1162,6 +1176,7 @@ def scrape_page_showspace(request_url):
     'Metro':'39.3089146,-76.6167916',
     'Metro Gallery':'39.3089146,-76.6167916',
     'Mi Comalito':'39.313363,-76.6163494',
+    'Mi Comalito (2101 N Charles St)':'39.313363,-76.6163494',
     'MICA Game Lab (100 Dolphin St)':'39.3066058,-76.6205643',
     'MICA Meyerhoff Gallery':'39.30873,-76.6210491',
     'Mickey’s Joint':'39.3514225,-76.5624988',
@@ -1175,6 +1190,7 @@ def scrape_page_showspace(request_url):
     'Mobtown Ballroom &amp; Club Car &amp; Royal Blue &amp; Night Owl':'39.3113947,-76.6177064',
     'Mobtown Brewery':'39.2843704,-76.5625121',
     'Mobtown Brewing Co.':'39.2843704,-76.5625121',
+    'Montebello Terrace (4500 Harford Road)':'39.3403558,-76.5723694',
     'Monument Brewing':'39.2929307,-76.5624118',
     'Monument City Brewing':'39.2929307,-76.5624118',
     'Monument City Brewing</strike>':'39.2929307,-76.5624118',
@@ -1216,6 +1232,7 @@ def scrape_page_showspace(request_url):
     'Old Major':'39.2819356,-76.6373744',
     'Old Major (900 S. Carey St.)':'39.2819356,-76.6373744',
     'Old York Lot (outdoors - message bands for address)':'UNKNOWN',
+    'Oliver Brewing Company (Outside)':'39.3149018,-76.5531768',
     'Onle Vibez (3241 Belar Rd)':'39.3212898,-76.5736983',
     'Online on Twitch':'UNKNOWN',
     'Open Works':'39.3060824,-76.608924',
@@ -1255,6 +1272,7 @@ def scrape_page_showspace(request_url):
     'Penn &amp; Baker St.':'39.308338,-76.640577',
     'Phlote (300 W Pratt St)':'39.2866853,-76.6196986',
     'Phlote (300 W Pratt St 3rd floor)':'39.2866853,-76.6196986',
+    'Phoenix Art Yard (1320 Bayard St)':'39.2783448,-76.6354312',
     'Phoenix Cultural':'39.2985994,-76.5842927',
     'Pier Six':'39.283608,-76.6042422',
     'Pier Six Pavilion':'39.283608,-76.6042422',
@@ -1386,6 +1404,7 @@ def scrape_page_showspace(request_url):
     'The Hargrove (2225 Hargrove Aly)':'39.3150763,-76.6145339',
     'The Hargrove':'39.3150763,-76.6145339',
     'The Hargrove (DM artists for address)':'39.3150763,-76.6145339',
+    'The Hippodrome':'39.2894402,-76.6210986',
     'The H.O.L.E. (DM bmorezinefest for address)':'UNKNOWN',
     'The Hole (DM bands below for address)':'UNKNOWN',
     'The Hole (DM bands for address)':'UNKNOWN',
@@ -1473,6 +1492,7 @@ def scrape_page_showspace(request_url):
     'Wyman Park Dell':'39.324025,-76.6170002',
     'Ye Olde Emerald Tavern':'39.3791712,-76.5386118',
     'YNOT Lot':'39.311268,-76.616679',
+    'Ynot Lot':'39.311268,-76.616679',
     'York Rd &amp; Woodbourne Ave':'39.3556559,-76.6096683',
     'Zen West':'39.364333,-76.610107',
     'Zika Farm':'UNKNOWN',
@@ -1549,7 +1569,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[29]
+    thismonth_url = monthlisthere[30]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1576,6 +1596,7 @@ def scrape_page_showspace(request_url):
       thisday = re.sub(r"February 1, 2022<br />","February 1, 2022",thisday)
       thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
       thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
+      thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
       thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
