@@ -218,6 +218,7 @@ def scrape_page_showspace(request_url):
     'BSO':'1212 Cathedral St',
     'Burns Manor':'UNKNOWN',
     'CFG Arena':'201 W Baltimore St',
+    'Call 877-577-BOOM or DM Crass Lips Records':'UNKNOWN',
     'Camden Yards':'333 W Camden St',
     'Canton Waterfront Park':'3001 Boston St',
     'Canton Waterfront Park,':'3001 Boston St',
@@ -499,6 +500,7 @@ def scrape_page_showspace(request_url):
     'Mothers Grille':'1113 S Charles St',
     'Motorhouse':'120 W North Ave',
     'Motor House':'120 W North Ave',
+    'Mount Royal Soap Co.':'2740 Huntingdon Ave',
     'Mt. Royal Soaps':'2740 Huntingdon Ave',
     'Mt. Vernon':'1 W Mt Vernon Pl',
     'Mt Vernon Marketplace':'520 Park Ave',
@@ -1033,6 +1035,7 @@ def scrape_page_showspace(request_url):
     'BSO':'39.303876,-76.6189886',
     'Burns Manor':'UNKNOWN',
     'CFG Arena':'39.2886044,-76.6187088',
+    'Call 877-577-BOOM or DM Crass Lips Records':'UNKNOWN',
     'Camden Yards':'39.2837383,-76.6216056',
     'Canton Waterfront Park':'39.276827,-76.5699968',
     'Canton Waterfront Park,':'39.276827,-76.5699968',
@@ -1313,6 +1316,7 @@ def scrape_page_showspace(request_url):
     'Mothers Grille':'39.2763396,-76.614194',
     'Motorhouse':'39.3113403,-76.6189024',
     'Motor House':'39.3113403,-76.6189024',
+    'Mount Royal Soap Co.':'39.3204076,-76.6228252',
     'Mt. Royal Soaps':'39.3204076,-76.6228252',
     'Mt. Vernon':'39.2971564,-76.6160096',
     'Mt Vernon Marketplace':'39.2959677,-76.618833',
@@ -1709,7 +1713,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[39]
+    thismonth_url = monthlisthere[40]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
