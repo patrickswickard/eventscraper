@@ -256,6 +256,7 @@ def scrape_page_showspace(request_url):
     'Church on the Square':'1025 S Potomac St',
     'City Beach':'UNKNOWN',
     'City Beach Live':'UNKNOWN',
+    'City Hall':'100 Holliday St',
     'City of Gods':'1118 Hollins St',
     'Clifton Bandshell':'2401 N Rose St',
     'Clifton Park':'2701 St Lo Dr',
@@ -278,7 +279,9 @@ def scrape_page_showspace(request_url):
     'Creative Alliance':'3134 Eastern Ave',
     'Creative Alliance.':'3134 Eastern Ave',
     'Creative Alliance&nbsp;':'3134 Eastern Ave',
+    'Creative Alliance &nbsp;':'3134 Eastern Ave',
     'Crown':'1910 N Charles St',
+    'Crown/Y Not Lot':'1910 N Charles St',
     'Crown Back Back':'1910 N Charles St',
     'Crown Back Bar':'1910 N Charles St',
     'Crown Pink Room':'1910 N Charles St',
@@ -390,6 +393,7 @@ def scrape_page_showspace(request_url):
     'Heinz Park':'3001 Parkside Dr',
     'Herring Run':'3800 Belair Rd',
     'Herring Run Park':'3800 Belair Rd',
+    'HI Baltimore Hostel':'17 W Mulberry St',
     'Hidden Harvest':'1825 N Calvert St',
     'Hidden Harvest Community Farm (1825 N Calvert St)':'1825 N Calvert St',
     'Hippodrome':'12 N Eutaw St',
@@ -476,6 +480,7 @@ def scrape_page_showspace(request_url):
     'Mi Comalito (2101 N Charles St)':'2101 N Charles St',
     'MICA Game Lab (100 Dolphin St)':'100 Dolphin St',
     'MICA Meyerhoff Gallery':'1303 W Mount Royal Ave',
+    'Mice In The Attic':'UNKNOWN',
     'Mickey’s Joint':'5402 Harford Rd',
     'Micky’s Joint':'5402 Harford Rd',
     'Mickey’s Joint (5403 Harford Rd)':'5402 Harford Rd',
@@ -639,6 +644,7 @@ def scrape_page_showspace(request_url):
     'Shake\'n\'Bake Family Fun Center':'1601 Pennsylvania Ave',
     'Shake &amp; Bake Family Fun Center':'1601 Pennsylvania Ave',
     'Shamrock Inn':'6044 Harford Rd',
+    'Sicilys':'1702 Yakona Rd',
     'Sidebar':'218 E Lexington St',
     'Sidebar</a>':'218 E Lexington St',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
@@ -675,6 +681,7 @@ def scrape_page_showspace(request_url):
     'Station North (DM bands for address)':'UNKNOWN',
     'Starts at YNOT Lot':'1900 N Charles St',
     'Stem &amp; Vine':'326 N Charles St',
+    'Stevenson Ranch':'UNKNOWN',
     'Stoneleigh Lanes':'6703 York Rd',
     'Studio 10':'530 S Conkling St',
     'Studio Ten 10':'530 S Conkling St',
@@ -738,6 +745,7 @@ def scrape_page_showspace(request_url):
     'The Parlor (108 W. North Ave.)':'108 W North Ave',
     'The Parlor (803 St. Paul)':'39.2988532,-76.6139616',
     'The Peale':'225 Holliday St',
+    'The Pearl Gallery':'826 W 36th St',
     'The Point':'1738 Thames St',
     'The Recher':'512 York Rd',
     'The Reservoir':'404 York Rd',
@@ -782,6 +790,7 @@ def scrape_page_showspace(request_url):
     'Union Square Park':'31 S Gilmor St',
     'Union Square Park (31 S. Gilmor St)':'31 S Gilmor St',
     'University of Baltimore (Wright Theater)':'21 W Mt Royal Ave',
+    'University of Baltimore Student Center Auditorium 5th floor (SE Corner Mt Royal &amp; Maryland)':'21 W Mt Royal Ave',
     'Uranus (DM bands for address)':'UNKNOWN',
     'Village Learning Place (2521 St. Paul St)':'2521 St. Paul St',
     'War Memorial Plaza (101 N. Gay St)':'101 N Gay St',
@@ -1073,6 +1082,7 @@ def scrape_page_showspace(request_url):
     'Church on the Square':'39.2802511,-76.5737227',
     'City Beach':'UNKNOWN',
     'City Beach Live':'UNKNOWN',
+    'City Hall':'39.2908833,-76.6107116',
     'City of Gods':'39.2878265,-76.6358536',
     'Clifton Bandshell':'39.3178606,-76.5822994',
     'Clifton Park':'39.320833, -76.582778',
@@ -1095,7 +1105,9 @@ def scrape_page_showspace(request_url):
     'Creative Alliance':'39.2867649,-76.5717943',
     'Creative Alliance.':'39.2867649,-76.5717943',
     'Creative Alliance&nbsp;':'39.2867649,-76.5717943',
+    'Creative Alliance &nbsp;':'39.2867649,-76.5717943',
     'Crown':'39.3117857,-76.6168609',
+    'Crown/Y Not Lot':'39.3117857,-76.6168609',
     'Crown Back Back':'39.3117857,-76.6168609',
     'Crown Back Bar':'39.3117857,-76.6168609',
     'Crown Pink Room':'39.3117857,-76.6168609',
@@ -1207,6 +1219,7 @@ def scrape_page_showspace(request_url):
     'Heinz Park':'39.336914,-76.574728',
     'Herring Run':'39.32536,-76.568997',
     'Herring Run Park':'39.32536,-76.568997',
+    'HI Baltimore Hostel':'39.2937859,-76.6165667',
     'Hidden Harvest':'39.310355,-76.613667',
     'Hidden Harvest Community Farm (1825 N Calvert St)':'39.310355,-76.613667',
     'Hippodrome':'39.2894402,-76.6210986',
@@ -1292,6 +1305,7 @@ def scrape_page_showspace(request_url):
     'Mi Comalito (2101 N Charles St)':'39.313363,-76.6163494',
     'MICA Game Lab (100 Dolphin St)':'39.3066058,-76.6205643',
     'MICA Meyerhoff Gallery':'39.30873,-76.6210491',
+    'Mice In The Attic':'UNKNOWN',
     'Mickey’s Joint':'39.3514225,-76.5624988',
     'Micky’s Joint':'39.3514225,-76.5624988',
     'Mickey’s Joint (5403 Harford Rd)':'39.3514225,-76.5624988',
@@ -1454,6 +1468,7 @@ def scrape_page_showspace(request_url):
     'Shake\'n\'Bake Family Fun Center':'39.3032633,-76.633751',
     'Shake &amp; Bake Family Fun Center':'39.3032633,-76.633751',
     'Shamrock Inn':'39.3583692,-76.5565543',
+    'Sicilys':'39.3960947,-76.5624811',
     'Sidebar':'39.2914058,-76.611273',
     'Sidebar</a>':'39.2914058,-76.611273',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
@@ -1490,6 +1505,7 @@ def scrape_page_showspace(request_url):
     'Station North':'39.3107411,-76.6166913',
     'Station North (DM bands for address)':'UNKNOWN',
     'Stem &amp; Vine':'39.2932699,-76.6155328',
+    'Stevenson Ranch':'UNKNOWN',
     'Stoneleigh Lanes':'39.3770618,-76.6086015',
     'Studio 10':'39.2857918,-76.5674009',
     'Studio Ten 10':'39.2857918,-76.5674009',
@@ -1553,6 +1569,7 @@ def scrape_page_showspace(request_url):
     'The Parlor (108 W. North Ave.)':'39.3115748,-76.6183888',
     'The Parlor (803 St. Paul)':'39.3115748,-76.6183888',
     'The Peale':'39.291864,-76.610052',
+    'The Pearl Gallery':'39.3313149,-76.6304063',
     'The Point':'39.2820998,-76.5913462',
     'The Recher':'39.4009454,-76.6021005',
     'The Reservoir':'39.3996,-76.6024742',
@@ -1597,6 +1614,7 @@ def scrape_page_showspace(request_url):
     'Union Square Park':'39.2868225,-76.6412783',
     'Union Square Park (31 S. Gilmor St)':'39.2868225,-76.6412783',
     'University of Baltimore (Wright Theater)':'39.3051217,-76.6171648',
+    'University of Baltimore Student Center Auditorium 5th floor (SE Corner Mt Royal &amp; Maryland)':'39.3051217,-76.6171648',
     'Uranus (DM bands for address)':'UNKNOWN',
     'Village Learning Place (2521 St. Paul St)':'39.3186131,-76.6151688',
     'War Memorial Plaza (101 N. Gay St)':'39.2909756,-76.6083613',
@@ -1713,7 +1731,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[40]
+    thismonth_url = monthlisthere[41]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1744,6 +1762,7 @@ def scrape_page_showspace(request_url):
       thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
       thisday = re.sub(r"December 1, 2019<br />","December 1, 2019",thisday)
       thisday = re.sub(r"January 2, 2020<br />","Thursday, January 2, 2020",thisday)
+      thisday = re.sub(r"July 28, 2019</p>","July 28, 2019",thisday)
       thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
