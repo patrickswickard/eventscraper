@@ -165,8 +165,10 @@ def scrape_page_showspace(request_url):
     'Area 405':'405 E Oliver St',
     'Arnolds (118 W Mulberry St)':'118 W Mulberry St',
     'B&amp;O Railroad Museum':'901 W Pratt St',
+    'Baby’s on Fire':'1010 Morton St',
     'Baby’s on Fire (Fells Point)':'1616 Thames St',
     'Baby’s On Fire (Fells Point)':'1616 Thames St',
+    'Baby’s on Fire - Fells Point':'1616 Thames St',
     'Baltimore City Hall':'100 Holliday St',
     'Baltimore Clayworks':'5707 Smith Ave',
     'Baltimore Museum of Industry':'1415 Key Hwy',
@@ -183,6 +185,7 @@ def scrape_page_showspace(request_url):
     'Barcocina':'1629 Thames St',
     'Bazaar (3534 Chestnut Ave)':'3534 Chestnut Ave',
     'Beyond Video':'2545 N Howard St',
+    'BF House':'UNKNOWN',
     'Big Blue House (DM bands for address)':'UNKNOWN',
     'Bird In Hand':'11 E 33rd St',
     'Black Acres Coffee':'1400 Greenmount Ave',
@@ -242,6 +245,7 @@ def scrape_page_showspace(request_url):
     'Chimney Swallow (DM bands for address)':'UNKNOWN',
     'Church on the Square':'1025 S Potomac St',
     'City Beach':'UNKNOWN',
+    'City Beach Live':'UNKNOWN',
     'City of Gods':'1118 Hollins St',
     'Clifton Bandshell':'2401 N Rose St',
     'Clifton Park':'2701 St Lo Dr',
@@ -334,6 +338,7 @@ def scrape_page_showspace(request_url):
     'Fadensonnen   <br />':'3 W 23rd St',
     'Faddensonnen':'3 W 23rd St',
     'Fadensonnen Winebar':'3 W 23rd St',
+    'Fadensonnen Wine Bar':'3 W 23rd St',
     'Fadensonnen Wine Bar Upstairs':'3 W 23rd St',
     'Fell’s Point':'1701 Thames St',
     'Fells Point':'1701 Thames St',
@@ -610,6 +615,7 @@ def scrape_page_showspace(request_url):
     'Shake &amp; Bake Family Fun Center':'1601 Pennsylvania Ave',
     'Shamrock Inn':'6044 Harford Rd',
     'Sidebar':'218 E Lexington St',
+    'Sidebar</a>':'218 E Lexington St',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Sidedoor   (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Side Door (DM bands for address)':'UNKNOWN',
@@ -660,6 +666,7 @@ def scrape_page_showspace(request_url):
     'The Bun Shop':'239 W Read St',
     'The Calbox (DM bands for address)':'UNKNOWN',
     'The Can Company':'2400 Boston St',
+    'The Carroll Mansion':'800 E Lombard St',
     'The Castle (DM bands for address)':'UNKNOWN',
     'The Cat’s House (DM bands for address)':'UNKNOWN',
     'The Cave (DM bands for address)':'UNKNOWN',
@@ -712,6 +719,7 @@ def scrape_page_showspace(request_url):
     'The Ruins (DM nfc.underground for address)':'UNKNOWN',
     'The Shamrock Inn':'6044 Harford Rd',
     'The Skatepark (DM bands for address)':'UNKNOWN',
+    'The Sound Garden':'1616 Thames St',
     'The Undercroft':'2629 Huntington Ave',
     'The Vortex CAA Park':'202 Ingleside Ave',
     'The Vortex (CAA Park)':'202 Ingleside Ave',
@@ -943,8 +951,10 @@ def scrape_page_showspace(request_url):
     'Arnolds (118 W Mulberry St)':'39.29038,-76.61219',
     'Atomic Books':'39.3313357,-76.6351825',
     'B&amp;O Railroad Museum':'39.2847498,-76.6334695',
+    'Baby’s on Fire':'39.301527,-76.6169291',
     'Baby’s on Fire (Fells Point)':'39.28157,-76.5943617',
     'Baby’s On Fire (Fells Point)':'39.28157,-76.5943617',
+    'Baby’s on Fire - Fells Point':'39.28157,-76.5943617',
     'Baltimore City Hall':'39.2908833,-76.6107116',
     'Baltimore Clayworks':'39.3681735,-76.6532675',
     'Baltimore Museum of Industry':'39.2737223,-76.6021352',
@@ -961,6 +971,7 @@ def scrape_page_showspace(request_url):
     'Barcocina':'39.2811117,-76.5944726',
     'Bazaar (3534 Chestnut Ave)':'39.3308489,-76.6296283',
     'Beyond Video':'39.3187381,-76.6195763',
+    'BF House':'UNKNOWN',
     'Big Blue House (DM bands for address)':'UNKNOWN',
     'Bird In Hand':'39.3279255,-76.6167287',
     'Black Acres Coffee':'39.3060824,-76.608924',
@@ -1020,6 +1031,7 @@ def scrape_page_showspace(request_url):
     'Chimney Swallow (DM bands for address)':'UNKNOWN',
     'Church on the Square':'39.2802511,-76.5737227',
     'City Beach':'UNKNOWN',
+    'City Beach Live':'UNKNOWN',
     'City of Gods':'39.2878265,-76.6358536',
     'Clifton Bandshell':'39.3178606,-76.5822994',
     'Clifton Park':'39.320833, -76.582778',
@@ -1111,6 +1123,7 @@ def scrape_page_showspace(request_url):
     'Fadensonnen':'39.3015459,-76.616743',
     'Fadensonnen   <br />':'39.3015459,-76.616743',
     'Faddensonnen':'39.3015459,-76.616743',
+    'Fadensonnen Wine Bar':'39.3015459,-76.616743',
     'Fadensonnen Winebar':'39.3015459,-76.616743',
     'Fadensonnen Wine Bar Upstairs':'39.3015459,-76.616743',
     'Fell’s Point':'39.281769,-76.592942',
@@ -1386,6 +1399,7 @@ def scrape_page_showspace(request_url):
     'Shake &amp; Bake Family Fun Center':'39.3032633,-76.633751',
     'Shamrock Inn':'39.3583692,-76.5565543',
     'Sidebar':'39.2914058,-76.611273',
+    'Sidebar</a>':'39.2914058,-76.611273',
     'Sidedoor (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Sidedoor   (DM SidedoorsBaltimore for addy)':'UNKNOWN',
     'Side Door (DM bands for address)':'UNKNOWN',
@@ -1436,6 +1450,7 @@ def scrape_page_showspace(request_url):
     'The Bun Shop':'39.3006297,-76.6195666',
     'The Calbox (DM bands for address)':'UNKNOWN',
     'The Can Company':'39.2817479,-76.5816562',
+    'The Carroll Mansion':'39.2885115,-76.6044141',
     'The Castle (DM bands for address)':'UNKNOWN',
     'The Cat’s House (DM bands for address)':'UNKNOWN',
     'The Cave (DM bands for address)':'UNKNOWN',
@@ -1488,6 +1503,7 @@ def scrape_page_showspace(request_url):
     'The Ruins (DM nfc.underground for address)':'UNKNOWN',
     'The Shamrock Inn':'39.3583692,-76.5565543',
     'The Skatepark (DM bands for address)':'UNKNOWN',
+    'The Sound Garden':'39.28157,-76.5943617',
     'The Undercroft':'39.4995455,-76.6430605',
     'The Vortex CAA Park':'39.29038,-76.61219',
     'The Vortex (CAA Park)':'39.29038,-76.61219',
@@ -1635,7 +1651,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[34]
+    thismonth_url = monthlisthere[35]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1664,6 +1680,7 @@ def scrape_page_showspace(request_url):
       thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
       thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
       thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
+      thisday = re.sub(r"January 2, 2020<br />","Thursday, January 2, 2020",thisday)
       thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
