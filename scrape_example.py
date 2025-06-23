@@ -1703,6 +1703,22 @@ def scrape_page_showspace(request_url):
     single_link = re.search(r"href=\"(.*?)\"",thismonth)
     # FIXME OVERRIDE
     monthlisthere = [
+      'https://baltshowplace.tumblr.com/post/784976508140814336/june-2025',
+      'https://baltshowplace.tumblr.com/post/782020357674631168/may-2025',
+      'https://baltshowplace.tumblr.com/post/779133136197074944/april-2025',
+      'https://baltshowplace.tumblr.com/post/776414637419790336/saturday-march-1-2025',
+      'https://baltshowplace.tumblr.com/post/773975117554384896/february-2025',
+      'https://baltshowplace.tumblr.com/post/770972544848297984/january-2025',
+      'https://baltshowplace.tumblr.com/post/768449088238895104/december-2024',
+      'https://baltshowplace.tumblr.com/post/765527326372102144/november-2024',
+      'https://baltshowplace.tumblr.com/post/762743700027834368/october-2024',
+      'https://baltshowplace.tumblr.com/post/760202712078008320/september-2024',
+      'https://baltshowplace.tumblr.com/post/756932438274588672/august-2024',
+      'https://baltshowplace.tumblr.com/post/754400753730420736/july-2024',
+      'https://baltshowplace.tumblr.com/post/751599042382954496/june-2024',
+      'https://baltshowplace.tumblr.com/post/748699033203245056/may-2024',
+      'https://baltshowplace.tumblr.com/post/746071191901667328/april-2024',
+      'https://baltshowplace.tumblr.com/post/742995647288999936/march-2024',
       'https://baltshowplace.tumblr.com/post/740598285591527424/february-2024',
       'https://baltshowplace.tumblr.com/post/738051898274430976/january-2024',
       'https://baltshowplace.tumblr.com/post/734896694276276224/december-2023',
