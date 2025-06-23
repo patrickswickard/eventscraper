@@ -123,6 +123,7 @@ def scrape_page_showspace(request_url):
     '4500 Harford Road':'4500 Harford Road',
     '4500 Harford Rd (outdoors)':'4500 Harford Road',
     '4518 Raspe Ave':'4518 Raspe Ave',
+    '5D (ask the SHRYMPS for address)':'UNKNOWN',
     '5003 Grindon Ave':'5003 Grindon Ave',
     '5401 Elsrode Ave':'5401 Elsrode Ave',
     '5401 Elsrode Ave.':'5401 Elsrode Ave',
@@ -350,6 +351,7 @@ def scrape_page_showspace(request_url):
     'Free Farm (3511 Ash St)':'3511 Ash St',
     'Freight Zone (next to True Vine)':'UNKNOWN',
     'Frog Shack (DM @zd_rom_ for address)':'UNKNOWN',
+    'George Peabody Library':'17 E Mt Vernon Pl',
     'Get Shredded Vintage':'411 W 29th St',
     'Golden West':'1105 W 36th St',
     'Golden West Cafe':'1105 W 36th St',
@@ -909,6 +911,7 @@ def scrape_page_showspace(request_url):
     '4500 Harford Road':'39.3403558,-76.5723694',
     '4500 Harford Rd (outdoors)':'39.3403558,-76.5723694',
     '4518 Raspe Ave':'39.3488426,-76.5278754',
+    '5D (ask the SHRYMPS for address)':'UNKNOWN',
     '5003 Grindon Ave':'39.3506452,-76.5716421',
     '5401 Elsrode Ave':'39.3535053,-76.564281',
     '5401 Elsrode Ave.':'39.3535053,-76.564281',
@@ -1136,6 +1139,7 @@ def scrape_page_showspace(request_url):
     'Free Farm (3511 Ash St)':'39.3291452,-76.6396588',
     'Freight Zone (next to True Vine)':'UNKNOWN',
     'Frog Shack (DM @zd_rom_ for address)':'UNKNOWN',
+    'George Peabody Library':'39.2972016,-76.6150479',
     'Get Shredded Vintage':'39.3210544,-76.6242742',
     'Golden West':'39.3308686,-76.6340015',
     'Golden West Cafe':'39.3308686,-76.6340015',
@@ -1651,7 +1655,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[35]
+    thismonth_url = monthlisthere[36]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1680,6 +1684,7 @@ def scrape_page_showspace(request_url):
       thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
       thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
       thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
+      thisday = re.sub(r"December 1, 2019<br />","December 1, 2019",thisday)
       thisday = re.sub(r"January 2, 2020<br />","Thursday, January 2, 2020",thisday)
       thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
