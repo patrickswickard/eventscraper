@@ -201,6 +201,7 @@ def scrape_page_showspace(request_url):
     'BSC Cocktail Gallery':'1700 W 41st St',
     'BSC’s Cocktail Gallery':'1700 W 41st St',
     'BSO':'1212 Cathedral St',
+    'Burns Manor':'UNKNOWN',
     'CFG Arena':'201 W Baltimore St',
     'Camden Yards':'333 W Camden St',
     'Canton Waterfront Park':'3001 Boston St',
@@ -284,6 +285,7 @@ def scrape_page_showspace(request_url):
     'Dark Room (DM bands for address)':'UNKNOWN',
     'DarkRoom (email deepsidebaltimore@gmail.com for location)':'UNKNOWN',
     'De Kleine Duivel':'3602 Hickory Ave',
+    'Dear Globe Coffeebar':'422 W Mulberry St',
     'Design Distillery (1414 Key Hwy)':'1414 Key Hwy',
     'Design Distillery (21414 Key Hwy)':'1414 Key Hwy',
     'Dick’s Halfway Inn':'8013 Philadelphia Rd',
@@ -328,8 +330,10 @@ def scrape_page_showspace(request_url):
     'Fadensonnen   <br />':'3 W 23rd St',
     'Faddensonnen':'3 W 23rd St',
     'Fadensonnen Winebar':'3 W 23rd St',
+    'Fadensonnen Wine Bar Upstairs':'3 W 23rd St',
     'Fell’s Point':'1701 Thames St',
     'Fells Point':'1701 Thames St',
+    'Floristree':'405 W Franklin St',
     'Fort Armistead (DM bands for address)':'UNKNOWN',
     'Fort Harmistead (DM bands for address)':'UNKNOWN',
     'Frank’s Bay Tavern':'4507 Pennington Ave',
@@ -430,6 +434,7 @@ def scrape_page_showspace(request_url):
     'Map Technologies (322 W. Baltimore St.)':'322 W Baltimore St',
     'M&amp;T Bank Exchange':'401 W Fayette St',
     'Manor Mill':'2029 Monkton Rd',
+    'Marikle Chapel (Notre Dame of Maryland University, Theresa Hall)':'39.3514279,-76.6194007',
     'Market Maven':'1630 Reisterstown Rd',
     'Maryland Safe Haven':'2117 N Charles St',
     'Maryland Science Center':'601 Light St',
@@ -454,6 +459,7 @@ def scrape_page_showspace(request_url):
     'Mobtown Ballroom &amp; Club Car &amp; Royal Blue &amp; Night Owl':'30 W North Ave',
     'Mobtown Brewery':'4015 Foster Ave',
     'Mobtown Brewing Co.':'4015 Foster Ave',
+    'Modell Lyric':'140 W Mt Royal Ave',
     'Monument Brewing':'1 N Haven St',
     'Monument City Brewing':'1 N Haven St',
     'Monument City Brewing</strike>':'1 N Haven St',
@@ -572,6 +578,7 @@ def scrape_page_showspace(request_url):
     'Remington Ave &amp; 28th St':'2801 Remington Ave',
     'Renaissance Harborplace Hotel':'202 E Pratt St',
     'Reverb':'2112 N Charles St',
+    'Rituals':'12 W North Ave',
     'Robert &amp; Bolton St':'299 Robert St',
     'Robert C. Marshall Park':'1182 Division St',
     'Rocket To Venus':'3360 Chestnut Ave',
@@ -719,6 +726,7 @@ def scrape_page_showspace(request_url):
     'True Vine':'1827 N Charles St',
     'True Vine Records':'1827 N Charles St',
     'UC Ballroom':'UNKNOWN',
+    'Undercroft':'2629 Huntington Ave',
     'Undercroft (outdoors)':'2629 Huntington Ave',
     'Union Craft':'1700 W 41st St',
     'Union Craft Brewery':'1700 W 41st St',
@@ -959,6 +967,7 @@ def scrape_page_showspace(request_url):
     'BSC Cocktail Gallery':'39.3358424,-76.6443726',
     'BSC’s Cocktail Gallery':'39.3358424,-76.6443726',
     'BSO':'39.303876,-76.6189886',
+    'Burns Manor':'UNKNOWN',
     'CFG Arena':'39.2886044,-76.6187088',
     'Camden Yards':'39.2837383,-76.6216056',
     'Canton Waterfront Park':'39.276827,-76.5699968',
@@ -1007,8 +1016,8 @@ def scrape_page_showspace(request_url):
     'Club 1722 (1722 N Charles St)':'38.5262005,-89.9710877',
     'Club 603':'UNKNOWN',
     'Club 603 (outside)':'UNKNOWN',
-    'Club Car':'39.3113936,-76.6170449`',
-    'Club Car.':'39.3113936,-76.6170449`',
+    'Club Car':'39.3113936,-76.6170449',
+    'Club Car.':'39.3113936,-76.6170449',
     'Club Car (12 W. North Ave)':'39.3113936,-76.6170449`',
     'Club Carr':'39.3113936,-76.6170449`',
     'Cocktail Gallery':'39.3358424,-76.6443726',
@@ -1042,6 +1051,7 @@ def scrape_page_showspace(request_url):
     'DarkRoom (email deepsidebaltimore@gmail.com)':'UNKNOWN',
     'DarkRoom (email deepsidebaltimore@gmail.com for location)':'UNKNOWN',
     'De Kleine Duivel':'39.331345,-76.6340367',
+    'Dear Globe Coffeebar':'39.293973,-76.6221441',
     'Design Distillery (21414 Key Hwy)':'39.2730828,-76.6021748',
     'Design Distillery (1414 Key Hwy)':'39.2730828,-76.6021748',
     'Dick’s Halfway Inn':'39.3208662,-76.5142262',
@@ -1086,8 +1096,10 @@ def scrape_page_showspace(request_url):
     'Fadensonnen   <br />':'39.3015459,-76.616743',
     'Faddensonnen':'39.3015459,-76.616743',
     'Fadensonnen Winebar':'39.3015459,-76.616743',
+    'Fadensonnen Wine Bar Upstairs':'39.3015459,-76.616743',
     'Fell’s Point':'39.281769,-76.592942',
     'Fells Point':'39.281769,-76.592942',
+    'Floristree':'39.2947317,-76.6216596',
     'Fort Armistead (DM bands for address)':'UNKNOWN',
     'Fort Harmistead (DM bands for address)':'UNKNOWN',
     'Frank’s Bay Tavern':'39.2250492,-76.5881778',
@@ -1187,6 +1199,7 @@ def scrape_page_showspace(request_url):
     'Map Technologies (322 W. Baltimore St.)':'39.2894465,-76.6204915',
     'M&amp;T Bank Exchange':'39.290314,-76.6212',
     'Manor Mill':'39.5762544,-76.6101941',
+    'Marikle Chapel (Notre Dame of Maryland University, Theresa Hall)':'4701 N Charles St',
     'Market Maven':'39.3789693,-76.7288117',
     'Maryland Safe Haven':'39.3138024,-76.616473',
     'Maryland Science Center':'39.2815216,-76.6121715',
@@ -1211,6 +1224,7 @@ def scrape_page_showspace(request_url):
     'Mobtown Ballroom &amp; Club Car &amp; Royal Blue &amp; Night Owl':'39.3113947,-76.6177064',
     'Mobtown Brewery':'39.2843704,-76.5625121',
     'Mobtown Brewing Co.':'39.2843704,-76.5625121',
+    'Modell Lyric':'39.305976,-76.6182009',
     'Montebello Terrace (4500 Harford Road)':'39.3403558,-76.5723694',
     'Monument Brewing':'39.2929307,-76.5624118',
     'Monument City Brewing':'39.2929307,-76.5624118',
@@ -1329,6 +1343,7 @@ def scrape_page_showspace(request_url):
     'Remington Ave &amp; 28th St':'39.3214903,-76.6213419',
     'Renaissance Harborplace Hotel':'39.286554,-76.6109903',
     'Reverb':'39.313714,-76.6171249',
+    'Rituals':'39.3113936,-76.6170449',
     'Robert &amp; Bolton St':'39.309468,-76.630599',
     'Robert C. Marshall Park':'39.3086443,-76.6388888',
     'Rocket To Venus':'39.3285598,-76.6294581',
@@ -1474,6 +1489,7 @@ def scrape_page_showspace(request_url):
     'Towson Planetarium':'39.3869768,-76.6185804',
     'True Vine':'39.3105745,-76.6164326',
     'True Vine Records':'39.3105745,-76.6164326',
+    'Undercroft':'39.4995455,-76.6430605',
     'Undercroft (outdoors)':'39.4995455,-76.6430605',
     'UC Ballroom':'UNKNOWN',
     'Union Craft':'39.3358424,-76.6443726',
@@ -1595,7 +1611,7 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
       'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[32]
+    thismonth_url = monthlisthere[33]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1606,6 +1622,7 @@ def scrape_page_showspace(request_url):
     weirdsub1 = False
     #if re.match(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
     #if re.match(r"J",thismonth_result_single_line):
+    thismonth_result_single_line = re.sub(r"<h2><b><i>\*\*\*PLEASE CHECK VENUE WEBSITES OR FACEBOOK PAGES FOR INFO ON WHETHER SHOWS HAVE BEEN CANCELLED\*\*\*</i></b></h2>","",thismonth_result_single_line)
     if re.search(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
       print('this will be weird')
       thismonth_result_single_line = re.sub(r"</p><h2>","</p></q><h2>",thismonth_result_single_line)
