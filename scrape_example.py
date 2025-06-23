@@ -590,6 +590,7 @@ def scrape_page_showspace(request_url):
     'St. Mary’s Upstairs (120 W. 25th St)':'120 W. 25th St',
     'St Nicholas Church':'520 Ponca St',
     'Station North':'1 W North Ave',
+    'Station North (DM bands for address)':'UNKNOWN',
     'Starts at YNOT Lot':'1900 N Charles St',
     'Stem &amp; Vine':'326 N Charles St',
     'Stoneleigh Lanes':'6703 York Rd',
@@ -1299,6 +1300,7 @@ def scrape_page_showspace(request_url):
     'St Nicholas Church':'39.2868733,-76.5550742',
     'Starts at YNOT Lot':'39.311268,-76.616679',
     'Station North':'39.3107411,-76.6166913',
+    'Station North (DM bands for address)':'UNKNOWN',
     'Stem &amp; Vine':'39.2932699,-76.6155328',
     'Stoneleigh Lanes':'39.3770618,-76.6086015',
     'Studio 10':'39.2857918,-76.5674009',
@@ -1481,8 +1483,25 @@ def scrape_page_showspace(request_url):
       'https://baltshowplace.tumblr.com/post/677037663343214592/march-2022',
       'https://baltshowplace.tumblr.com/post/674595075474571264/february-2022',
       'https://baltshowplace.tumblr.com/post/672057481921511424/january-2022-saturday-january-1-2022-baltimore',
+      'https://baltshowplace.tumblr.com/post/668688297732816896/december-2021',
+      'https://baltshowplace.tumblr.com/post/666346617298960384/november-2021',
+      'https://baltshowplace.tumblr.com/post/663532031553224704/october-2021',
+      'https://baltshowplace.tumblr.com/post/660549586203688961/september-2021',
+      'https://baltshowplace.tumblr.com/post/657825359778267136/august-2021',
+      'https://baltshowplace.tumblr.com/post/654738260727300096/july-2021-shows',
+      'https://baltshowplace.tumblr.com/post/652207470830305280/june-2021-shows',
+      'https://baltshowplace.tumblr.com/post/610908522479304704/march-2020-shows',
+      'https://baltshowplace.tumblr.com/post/190542555134/february-2020-shows',
+      'https://baltshowplace.tumblr.com/post/189893120099/january-2020-shows',
+      'https://baltshowplace.tumblr.com/post/189344777799/december-2019-shows',
+      'https://baltshowplace.tumblr.com/post/188691571144/november-2019-shows',
+      'https://baltshowplace.tumblr.com/post/187973398609/october-2019-shows',
+      'https://baltshowplace.tumblr.com/post/187337947144/september-2019-shows',
+      'https://baltshowplace.tumblr.com/post/186641957054/august-2019-shows',
+      'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
+      'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
     ]
-    thismonth_url = monthlisthere[25]
+    thismonth_url = monthlisthere[26]
     #thismonth_url = single_link.group(1)
     print(thismonth_url)
     # clicking through to current month's results
@@ -1495,7 +1514,8 @@ def scrape_page_showspace(request_url):
     #if re.match(r"J",thismonth_result_single_line):
     if re.search(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
       print('this will be weird')
-      daylist = re.findall(r"(<h2>(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*?</p>)",thismonth_result_single_line)
+      thismonth_result_single_line = re.sub(r"</p><h2>","</p></q><h2>",thismonth_result_single_line)
+      daylist = re.findall(r"(<h2>(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*?</q>)",thismonth_result_single_line)
     else:
       print('this will be normal')
       daylist = re.split(r"<p><br\s*\/?></p>",thismonth_result_single_line)
@@ -1506,6 +1526,8 @@ def scrape_page_showspace(request_url):
       thisday = re.sub(r"<br /><br />","</p>",thisday)
       thisday = re.sub(r"March 5, 2022<br />","March 5, 2022",thisday)
       thisday = re.sub(r"February 1, 2022<br />","February 1, 2022",thisday)
+      thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
+      thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
       thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
       event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
       if event_date_match:
