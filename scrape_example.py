@@ -2,11 +2,14 @@
 import requests
 import re
 from datetime import datetime
+import json
 
 request_url1 = 'https://peabody.jhu.edu/events/photo/page/1/'
 request_url2 = 'https://peabody.jhu.edu/events/photo/page/2/'
 request_url3 = 'https://peabody.jhu.edu/events/photo/page/3/'
 request_url4 = 'https://baltshowplace.tumblr.com/'
+
+all_events = []
 
 def parse_event_datetime(event_date_text,event_time_text):
   if event_time_text:
@@ -1825,6 +1828,8 @@ def scrape_month_showspace(request_url):
 
         print(event_date_text)
 
+        event_time_text = 'NONE'
+        fulldatetime = 'NONE'
         event_time_match = re.search(r"<p>.*?\.\s+(\d+\D*(?:AM|PM))\s*[,.@&-]",event)
         if event_time_match:
           event_time_text = event_time_match.group(1)
@@ -1849,27 +1854,41 @@ def scrape_month_showspace(request_url):
             location_set.add(event_location_text)
 
         event_street_address_text = "ERROR"
+        event_street_coords_text = "ERROR"
         if event_location_text:
           event_street_address_text = showspace_location_dict[event_location_text]
+          event_coords_text = showspace_location_coords[event_location_text]
           print(event_street_address_text)
+          print(event_coords_text)
 
+        event_cost_text = 'UNKNOWN'
         event_cost_match = re.search(r"<p>.*?\.\s+\w.*?(?:AM|PM)\s*[,.@&-]\s+(.*?)\s+@",event)
         if event_cost_match:
           event_cost_text = event_cost_match.group(1)
           print(event_cost_text)
         else:
-          print("DUNNO")
+          print(event_cost_text)
 
+        event_description_text = 'NONE'
         event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",thismonth_result_single_line)
         if event_description_match:
           event_description_text = event_description_match.group(1)
           print(event_description_text)
         else:
-          print("NONE")
-#  print(location_set)
-#  location_list = list(location_set)
-#  location_list.sort()
-#  print(location_list)
+          print(event_description_text)
+
+        thisevent = {}
+        thisevent['title'] = event_title_text
+        thisevent['url'] = event_url_text
+        thisevent['date'] = event_date_text 
+        thisevent['time'] = event_time_text
+        thisevent['fulldatetime'] = str(fulldatetime)
+        thisevent['location'] = event_location_text
+        thisevent['street_address'] = event_street_address_text
+        thisevent['coords'] = event_coords_text
+        thisevent['cost'] = event_cost_text
+        thisevent['description'] = event_description_text
+        all_events.append(thisevent)
 
 def scrape_page_peabody(request_url):
   result = requests.get(request_url).text
@@ -1915,15 +1934,17 @@ def scrape_page_peabody(request_url):
     event_cost_match = re.search(r"<div\s+class=\"tribe-events-event-cost\">\s*(.*?)</div>",subsite_result_single_line)
     event_cost_text = event_cost_match.group(1)
     print(event_cost_text)
-
-    #event_description_match = re.search(r"<div\s+class=\"tribe-events-single-event-description[^>]*>\s*(.*?)</div>",subsite_result_single_line)
-    #event_description_text = event_description_match.group(1)
-    #print(event_description_text)
-
-#scrape_page_peabody(request_url1)
-#scrape_page_peabody(request_url2)
-#scrape_page_peabody(request_url3)
-#scrape_page_showspace(request_url4)
+#    thisevent = {}
+#    thisevent['title'] = event_title_text
+#    thisevent['url'] = event_url_text
+#    thisevent['date'] = event_date_text 
+#    thisevent['time'] = event_time_text
+#    thisevent['fulldatetime'] = fulldatetime
+#    thisevent['location'] = event_location_text
+#    thisevent['street_address'] = event_street_address_text
+#    thisevent['coords'] = event_coords_text
+#    thisevent['cost'] = event_cost_text
+#    print(thisevent)
 
 monthlisthere = [
   'https://baltshowplace.tumblr.com/post/784976508140814336/june-2025',
@@ -1990,3 +2011,9 @@ monthlisthere = [
 for thismonth in monthlisthere:
   thismonth_url = thismonth
   scrape_month_showspace(thismonth_url)
+
+all_events_json = json.dumps(all_events)
+
+
+with open('all_events.json', 'w') as f:
+  print(all_events_json, file=f)
