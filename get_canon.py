@@ -827,7 +827,7 @@ showspace_location_dict = {
     'Wiggle Room (3000 Falls Rd)':'3000 Falls Rd',
     'Wiggle Room (DM bands for address)':'3000 Falls Rd',
     'Wine Collective':'1700 W 41st St',
-    'Wonderground Park':'1700 W 41st St',
+    'Wonderground Park':'409 E Lanvale St',
     'Wright Theater (University of Baltimore)':'21 W Mt Royal St',
     'Wxterhouse Studio (2202 Boston St)':'2202 Boston St',
     'Wyman Park':'2929 N Charles St',
@@ -2904,10 +2904,26 @@ for thisvalue in location_list:
   else:
     nonsingleton_list.append(vallist)
 
+singleton_canon = []
+nonsingleton_canon = []
+
 singleton_list.sort()
 for thisplace in singleton_list:
-  print(thisplace)
+  canonical_name = thisplace
+  inplace_name = thisplace
+  templist = [canonical_name,[inplace_name]]
+  singleton_canon.append(templist)
 
 nonsingleton_list_sorted = sorted(nonsingleton_list, key=lambda x: x[0])
 for thisduplist in nonsingleton_list_sorted:
-  print(thisduplist)
+  canonical_name = thisduplist[0]
+  inplace_names = thisduplist
+  templist = [canonical_name,inplace_names]
+  nonsingleton_canon.append(templist)
+
+all_canon = singleton_canon + nonsingleton_canon
+all_canon.sort()
+
+for thisitem in all_canon:
+  print(thisitem)
+
