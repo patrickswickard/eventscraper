@@ -2712,93 +2712,12 @@ def parse_event_datetime(event_date_text,event_time_text):
 
 def scrape_month_showspace(request_url):
   location_set = set()
-#  firstpage = requests.get(request_url).text
-#
-#  firstpage_single_line = ' '.join(firstpage.splitlines())
-#
-#  firstpagelines = firstpage.splitlines()
-#
-## find and report
-#  list_of_matching_months = re.findall(r"(\s*<section\s+class=\"post\">.*?</div>)",firstpage_single_line)
-#  first_matching_month = list_of_matching_months[14]
-
-#  for thismonth in [first_matching_month]:
-#    list_of_links = re.findall(r"href=\"(.*?)\"",thismonth)
-#    single_link = re.search(r"href=\"(.*?)\"",thismonth)
-#    # FIXME OVERRIDE
-#    monthlisthere = [
-#      'https://baltshowplace.tumblr.com/post/784976508140814336/june-2025',
-#      'https://baltshowplace.tumblr.com/post/782020357674631168/may-2025',
-#      'https://baltshowplace.tumblr.com/post/779133136197074944/april-2025',
-#      'https://baltshowplace.tumblr.com/post/776414637419790336/saturday-march-1-2025',
-#      'https://baltshowplace.tumblr.com/post/773975117554384896/february-2025',
-#      'https://baltshowplace.tumblr.com/post/770972544848297984/january-2025',
-#      'https://baltshowplace.tumblr.com/post/768449088238895104/december-2024',
-#      'https://baltshowplace.tumblr.com/post/765527326372102144/november-2024',
-#      'https://baltshowplace.tumblr.com/post/762743700027834368/october-2024',
-#      'https://baltshowplace.tumblr.com/post/760202712078008320/september-2024',
-#      'https://baltshowplace.tumblr.com/post/756932438274588672/august-2024',
-#      'https://baltshowplace.tumblr.com/post/754400753730420736/july-2024',
-#      'https://baltshowplace.tumblr.com/post/751599042382954496/june-2024',
-#      'https://baltshowplace.tumblr.com/post/748699033203245056/may-2024',
-#      'https://baltshowplace.tumblr.com/post/746071191901667328/april-2024',
-#      'https://baltshowplace.tumblr.com/post/742995647288999936/march-2024',
-#      'https://baltshowplace.tumblr.com/post/740598285591527424/february-2024',
-#      'https://baltshowplace.tumblr.com/post/738051898274430976/january-2024',
-#      'https://baltshowplace.tumblr.com/post/734896694276276224/december-2023',
-#      'https://baltshowplace.tumblr.com/post/732115473125244928/november-2023',
-#      'https://baltshowplace.tumblr.com/post/729295254033989632/october-2023',
-#      'https://baltshowplace.tumblr.com/post/727137330486509569/september-2023',
-#      'https://baltshowplace.tumblr.com/post/723875701736013824/august-2023',
-#      'https://baltshowplace.tumblr.com/post/721226733690535936/july-2023',
-#      'https://baltshowplace.tumblr.com/post/718170190266974208/june-2023',
-#      'https://baltshowplace.tumblr.com/post/715529145102254080/may-2023',
-#      'https://baltshowplace.tumblr.com/post/712533186762113024/april-2023',
-#      'https://baltshowplace.tumblr.com/post/710109247541805056/march-2023',
-#      'https://baltshowplace.tumblr.com/post/707300923405467648/february-2023',
-#      'https://baltshowplace.tumblr.com/post/704765880227217408/january-2023',
-#      'https://baltshowplace.tumblr.com/post/701745406283022336/december-2022',
-#      'https://baltshowplace.tumblr.com/post/699230592118800385/november-2022',
-#      'https://baltshowplace.tumblr.com/post/696605191759413248/october-2022',
-#      'https://baltshowplace.tumblr.com/post/693434961899995136/september-2022',
-#      'https://baltshowplace.tumblr.com/post/690893366167306240/august-2022',
-#      'https://baltshowplace.tumblr.com/post/687626976553582592/july-2022',
-#      'https://baltshowplace.tumblr.com/post/685102368717701120/june-2022',
-#      'https://baltshowplace.tumblr.com/post/682654766641414144/may-2022',
-#      'https://baltshowplace.tumblr.com/post/680026459916599296/april-2022',
-#      'https://baltshowplace.tumblr.com/post/677037663343214592/march-2022',
-#      'https://baltshowplace.tumblr.com/post/674595075474571264/february-2022',
-#      'https://baltshowplace.tumblr.com/post/672057481921511424/january-2022-saturday-january-1-2022-baltimore',
-#      'https://baltshowplace.tumblr.com/post/668688297732816896/december-2021',
-#      'https://baltshowplace.tumblr.com/post/666346617298960384/november-2021',
-#      'https://baltshowplace.tumblr.com/post/663532031553224704/october-2021',
-#      'https://baltshowplace.tumblr.com/post/660549586203688961/september-2021',
-#      'https://baltshowplace.tumblr.com/post/657825359778267136/august-2021',
-#      'https://baltshowplace.tumblr.com/post/654738260727300096/july-2021-shows',
-#      'https://baltshowplace.tumblr.com/post/652207470830305280/june-2021-shows',
-#      'https://baltshowplace.tumblr.com/post/610908522479304704/march-2020-shows',
-#      'https://baltshowplace.tumblr.com/post/190542555134/february-2020-shows',
-#      'https://baltshowplace.tumblr.com/post/189893120099/january-2020-shows',
-#      'https://baltshowplace.tumblr.com/post/189344777799/december-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/188691571144/november-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/187973398609/october-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/187337947144/september-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/186641957054/august-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/185898529844/july-2019-shows',
-#      'https://baltshowplace.tumblr.com/post/185260482249/june-2019-shows',
-#    ]
-#    thismonth_url = monthlisthere[42]
   thismonth_url = request_url
-  #thismonth_url = single_link.group(1)
   print(thismonth_url)
   # clicking through to current month's results
   thismonth_result = requests.get(thismonth_url).text
-#  list_of_matching_strings = re.findall(r"(\s*</figure>\s*</div>\s*</div>\s*<p>.*?<section\s+class=\"inline-meta post-extra\">)",firstpage_single_line)
   thismonth_result_single_line = ' '.join(thismonth_result.splitlines())
-  print(len(thismonth_result_single_line))
   weirdsub1 = False
-  #if re.match(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
-  #if re.match(r"J",thismonth_result_single_line):
   thismonth_result_single_line = re.sub(r"<h2><b><i>\*\*\*PLEASE CHECK VENUE WEBSITES OR FACEBOOK PAGES FOR INFO ON WHETHER SHOWS HAVE BEEN CANCELLED\*\*\*</i></b></h2>","",thismonth_result_single_line)
   if re.search(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
     print('this will be weird')
@@ -2953,17 +2872,6 @@ def scrape_page_peabody(request_url):
     event_cost_match = re.search(r"<div\s+class=\"tribe-events-event-cost\">\s*(.*?)</div>",subsite_result_single_line)
     event_cost_text = event_cost_match.group(1)
     print(event_cost_text)
-#    thisevent = {}
-#    thisevent['title'] = event_title_text
-#    thisevent['url'] = event_url_text
-#    thisevent['date'] = event_date_text 
-#    thisevent['time'] = event_time_text
-#    thisevent['fulldatetime'] = fulldatetime
-#    thisevent['location'] = event_location_text
-#    thisevent['street_address'] = event_street_address_text
-#    thisevent['coords'] = event_coords_text
-#    thisevent['cost'] = event_cost_text
-#    print(thisevent)
 
 monthlisthere = [
   'https://baltshowplace.tumblr.com/post/787474960748855296/july-2025',
