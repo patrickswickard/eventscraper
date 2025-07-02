@@ -72,7 +72,7 @@ list_of_venues = [
 ['431 Notre Dome Lane', ['431 Notre Dome Lane']],
 ['4500 Harford Rd', ['4500 Harford Rd','4500 Harford Rd (outdoors)', '4500 Harford Road', 'Montebello Terrace (4500 Harford Road)']],
 ['4518 Raspe Ave', ['4518 Raspe Ave', 'Lwn Sphere (4518 Raspe Ave)', 'Lwnsphere (4518 Raspe Ave)']],
-['4 q u a r i u m', ['4 q u a r i u m', '4QUARIAM', '4quarium', '4quarium (DM bands for address)','Aquarium','aquarium'],
+['4 q u a r i u m', ['4 q u a r i u m', '4QUARIAM', '4quarium', '4quarium (DM bands for address)','Aquarium','aquarium']],
 ['5003 Grindon Ave', ['5003 Grindon Ave']],
 ['507 N Carrollton Ave', ['507 N Carrollton Ave']],
 ['5401 Elsrode Ave', ['5401 Elsrode Ave', '5401 Elsrode Ave.']],
@@ -176,7 +176,7 @@ list_of_venues = [
 ['Current Space', ['421 N Howard St', 'Current Space', 'Current Space  <br />']],
 ['Cylburn Arboretum', ['Cylburn Arboretum']],
 ['Dangerously Delicious', ['Dangerously Delicious','Dangerously Delicious (810 36th St)', 'Dangerously Delicious Hampden (810 W. 36th St)', 'Dangerously Delicious Pies']],
-['Dark Room (DM bands for address)', 'DarkRoom', 'DarkRoom (DM DarkRoom for address)', 'DarkRoom (DM bands for address)', 'DarkRoom (DM bands for address)<br>Beaucoup De Chapeaux. 5PM-8PM @ Union Craft Brewing', 'DarkRoom (DM for address)', 'DarkRoom (email deepsidebaltimore@gmail.com for info)', 'DarkRoom (email deepsidebaltimore@gmail.com for location)', 'DarkRoom (email deepsidebaltimore@gmail.com)', 'Darkroom', 'Darkroom (DM bands for address)']],
+['Dark Room (DM bands for address)', ['DarkRoom', 'DarkRoom (DM DarkRoom for address)', 'DarkRoom (DM bands for address)', 'DarkRoom (DM bands for address)<br>Beaucoup De Chapeaux. 5PM-8PM @ Union Craft Brewing', 'DarkRoom (DM for address)', 'DarkRoom (email deepsidebaltimore@gmail.com for info)', 'DarkRoom (email deepsidebaltimore@gmail.com for location)', 'DarkRoom (email deepsidebaltimore@gmail.com)', 'Darkroom', 'Darkroom (DM bands for address)']],
 ['De Kleine Duivel', ['De Kleine Duivel', 'The Bluebird', 'The Green Room', 'The Green Room (3602 Hickory Ave.)']],
 ['Dear Globe Coffeebar', ['Dear Globe Coffeebar']],
 ['Design Distillery', ['Design Distillery','Design Distillery (1414 Key Hwy)', 'Design Distillery (21414 Key Hwy)']],
@@ -447,13 +447,36 @@ list_of_venues = [
 ['Zoo Pavillion', ['Zoo Pavillion','Zoo Pavillion (1 Safari Place)']],
 
 ['Zika Farm', ['Zika Farm', 'Zika Farm (Address shown w/ ticket purchase)', 'Zika Farm (DM artists for address)', 'Zika Farm (DM bands for address)', 'Zika Farm (DM data_mine for address)', 'Zika Farm (use QR code on flyer for location)']],
-['Zissimos', ['The Lou Costello Room Comedy Club', 'Zion Lutheran Church', 'Zion Lutheran Church (400 E Lexington St)', 'Zissimos', 'Zissimos Bar', 'Zissimos</strike>', 'Zissimo’s']],
+['Zion Lutheran Church', ['Zion Lutheran Church', 'Zion Lutheran Church (400 E Lexington St)']],
+['Zissimos', ['The Lou Costello Room Comedy Club', 'Zissimos', 'Zissimos Bar', 'Zissimos</strike>', 'Zissimo’s']]
 ]
+
+
+#for thisvenue in list_of_venues:
+#  canonical = thisvenue[0]
+#  alias_list = thisvenue[1]
+#  if canonical in alias_list:
+#    pass
+#  else:
+#    print(canonical)
+
+all_venue_list = []
 
 for thisvenue in list_of_venues:
   canonical = thisvenue[0]
   alias_list = thisvenue[1]
-  if canonical in alias_list:
-    pass
-  else:
-    print(canonical)
+  for thisalias in alias_list:
+    thismapping = [thisalias,canonical]
+    all_venue_list.append(thismapping)
+
+all_venue_list.sort()
+
+#for thisvenue in all_venue_list:
+#  print(thisvenue)
+
+#print(all_venue_list)
+
+print('all_venue_dict = {')
+for thismapping in all_venue_list:
+  print("  '" + thismapping[0] + "':'" + thismapping[1] + "',")
+print('}')
