@@ -2927,3 +2927,5 @@ all_canon.sort()
 for thisitem in all_canon:
   print(thisitem)
 
+# all_canon should contain canonical name string 
+# followed by list of alternate names
