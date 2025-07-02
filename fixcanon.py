@@ -176,7 +176,7 @@ list_of_venues = [
 ['Current Space', ['421 N Howard St', 'Current Space', 'Current Space  <br />']],
 ['Cylburn Arboretum', ['Cylburn Arboretum']],
 ['Dangerously Delicious', ['Dangerously Delicious','Dangerously Delicious (810 36th St)', 'Dangerously Delicious Hampden (810 W. 36th St)', 'Dangerously Delicious Pies']],
-['Dark Room (DM bands for address)', ['DarkRoom', 'DarkRoom (DM DarkRoom for address)', 'DarkRoom (DM bands for address)', 'DarkRoom (DM bands for address)<br>Beaucoup De Chapeaux. 5PM-8PM @ Union Craft Brewing', 'DarkRoom (DM for address)', 'DarkRoom (email deepsidebaltimore@gmail.com for info)', 'DarkRoom (email deepsidebaltimore@gmail.com for location)', 'DarkRoom (email deepsidebaltimore@gmail.com)', 'Darkroom', 'Darkroom (DM bands for address)']],
+['Dark Room (DM bands for address)', ['Dark Room (DM bands for address)','DarkRoom', 'DarkRoom (DM DarkRoom for address)', 'DarkRoom (DM bands for address)', 'DarkRoom (DM bands for address)<br>Beaucoup De Chapeaux. 5PM-8PM @ Union Craft Brewing', 'DarkRoom (DM for address)', 'DarkRoom (email deepsidebaltimore@gmail.com for info)', 'DarkRoom (email deepsidebaltimore@gmail.com for location)', 'DarkRoom (email deepsidebaltimore@gmail.com)', 'Darkroom', 'Darkroom (DM bands for address)']],
 ['De Kleine Duivel', ['De Kleine Duivel', 'The Bluebird', 'The Green Room', 'The Green Room (3602 Hickory Ave.)']],
 ['Dear Globe Coffeebar', ['Dear Globe Coffeebar']],
 ['Design Distillery', ['Design Distillery','Design Distillery (1414 Key Hwy)', 'Design Distillery (21414 Key Hwy)']],
