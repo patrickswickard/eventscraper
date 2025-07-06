@@ -22,10 +22,11 @@ def get_all_location(thislocation):
       print(thisevent)
 
 #thislocation = r"Ottobar"
-#thislocation = r"Peabody Heights|No Land Beyond"
+thislocation = r"Peabody Heights|No Land Beyond"
+thislocation = r""
 
-#get_all_location(thislocation)
+get_all_location(thislocation)
 
 
-thisdate = r"2025-07-05"
-get_all_date(thisdate)
+#thisdate = r"2025-07-05"
+#get_all_date(thisdate)
