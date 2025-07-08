@@ -23,48 +23,76 @@ def parse_event_datetime(event_date_text,event_time_text):
     fulldatetime = datetime.strptime(event_date_text, '%A, %B %d, %Y')
   return fulldatetime
 
-def scrape_month_showspace(request_url):
-  location_set = set()
-  thismonth_url = request_url
-  print(thismonth_url)
-  # clicking through to current month's results
-  thismonth_result = requests.get(thismonth_url).text
+def adjust_full_month_text(thismonth_result):
   thismonth_result_single_line = ' '.join(thismonth_result.splitlines())
-  weirdsub1 = False
   thismonth_result_single_line = re.sub(r"<h2><b><i>\*\*\*PLEASE CHECK VENUE WEBSITES OR FACEBOOK PAGES FOR INFO ON WHETHER SHOWS HAVE BEEN CANCELLED\*\*\*</i></b></h2>","",thismonth_result_single_line)
+  return thismonth_result_single_line
+
+def get_daylist(thismonth_result_single_line):
   if re.search(r"<h2>\s*JANUARY\s+2022\s*</h2>",thismonth_result_single_line):
-    print('this will be weird')
     thismonth_result_single_line = re.sub(r"</p><h2>","</p></q><h2>",thismonth_result_single_line)
     daylist = re.findall(r"(<h2>(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*?</q>)",thismonth_result_single_line)
   else:
-    print('this will be normal')
     daylist = re.split(r"<p><br\s*\/?></p>",thismonth_result_single_line)
-  print('list of days')
-  print(len(daylist))
+  return daylist
+
+def adjust_thisday(thisday):
+  thisday = re.sub(r"<br /><br />","</p>",thisday)
+  thisday = re.sub(r"March 5, 2022<br />","March 5, 2022",thisday)
+  thisday = re.sub(r"February 1, 2022<br />","February 1, 2022",thisday)
+  thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
+  thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
+  thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
+  thisday = re.sub(r"December 1, 2019<br />","December 1, 2019",thisday)
+  thisday = re.sub(r"January 2, 2020<br />","Thursday, January 2, 2020",thisday)
+  thisday = re.sub(r"July 28, 2019</p>","July 28, 2019",thisday)
+  thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
+  return thisday
+
+def adjust_event_date_text(event_date_text):
+  event_date_text = re.sub(r"2023<br\s+\/>","2023",event_date_text)
+  return event_date_text
+
+def adjust_event(event):
+  event = re.sub(r"\@ \+ Jiffy","+ Jiffy",event)
+  event = re.sub(r"Meet Me @ The Altar","Meet Me at The Altar",event)
+  event = re.sub(r"\s*<br\s*/>","",event)
+  event = re.sub(r"&rsquo;","’",event)
+  event = re.sub(r"</strike>","",event)
+  return event
+
+def adjust_event_time_text(event_time_text):
+  event_time_text = re.sub(r"\b15PM","5PM",event_time_text)
+  event_time_text = re.sub(r"\b20PM","8PM",event_time_text)
+  event_time_text = re.sub(r"\b22PM","10PM",event_time_text)
+  event_time_text = re.sub(r"\b3PMPM","3PM",event_time_text)
+  event_time_text = re.sub(r"\b7 PM","7PM",event_time_text)
+  event_time_text = re.sub(r"\b8 PM","8PM",event_time_text)
+  event_time_text = re.sub(r"\b9 PM","9PM",event_time_text)
+  event_time_text = re.sub(r"\b10 PM","10PM",event_time_text)
+  return event_time_text
+
+def scrape_month_showspace(request_url):
+  location_set = set()
+  thismonth_url = request_url
+  #print(thismonth_url)
+  # clicking through to current month's results
+  thismonth_result = requests.get(thismonth_url).text
+  thismonth_result_single_line = adjust_full_month_text(thismonth_result)
+  daylist = get_daylist(thismonth_result_single_line)
+  #print('list of days')
+  #print(len(daylist))
   for thisday in daylist:
-    # idiot stuff happening 2022-06-*
-    thisday = re.sub(r"<br /><br />","</p>",thisday)
-    thisday = re.sub(r"March 5, 2022<br />","March 5, 2022",thisday)
-    thisday = re.sub(r"February 1, 2022<br />","February 1, 2022",thisday)
-    thisday = re.sub(r"December 24, 2021<br />","December 24, 2021",thisday)
-    thisday = re.sub(r"December 29, 2021<br />","December 29, 2021",thisday)
-    thisday = re.sub(r"August 1, 2021<br />","August 1, 2021",thisday)
-    thisday = re.sub(r"December 1, 2019<br />","December 1, 2019",thisday)
-    thisday = re.sub(r"January 2, 2020<br />","Thursday, January 2, 2020",thisday)
-    thisday = re.sub(r"July 28, 2019</p>","July 28, 2019",thisday)
-    thisday = re.sub(r"<h2>JANUARY 2022</h2><h2>Saturday, January 1, 2022</h2>","<h2>Saturday, January 1, 2022</h2>",thisday)
+    thisday = adjust_thisday(thisday)
     event_date_match = re.search(r"<h2>(.*?)</h2>",thisday)
     if event_date_match:
       event_date_text = event_date_match.group(1)
-      event_date_text = re.sub(r"2023<br\s+\/>","2023",event_date_text)
+      event_date_text = adjust_event_date_text(event_date_text)
+      #event_date_text = re.sub(r"2023<br\s+\/>","2023",event_date_text)
       list_of_events = re.findall(r"(<p>\s*\w.*?(?:</p>))",thisday)
       for event in list_of_events:
         print('HERE IS AN EVENT')
-        event = re.sub(r"\@ \+ Jiffy","+ Jiffy",event)
-        event = re.sub(r"Meet Me @ The Altar","Meet Me at The Altar",event)
-        event = re.sub(r"\s*<br\s*/>","",event)
-        event = re.sub(r"&rsquo;","’",event)
-        event = re.sub(r"</strike>","",event)
+        event = adjust_event(event)
         event_title_match = re.search(r"<p>(.*?)</p>",event)
         event_title_text = event_title_match.group(1)
         print(event_title_text)
@@ -81,14 +109,7 @@ def scrape_month_showspace(request_url):
         if event_time_match:
           event_time_text = event_time_match.group(1)
           print(event_time_text)
-          event_time_text = re.sub(r"\b15PM","5PM",event_time_text)
-          event_time_text = re.sub(r"\b20PM","8PM",event_time_text)
-          event_time_text = re.sub(r"\b22PM","10PM",event_time_text)
-          event_time_text = re.sub(r"\b3PMPM","3PM",event_time_text)
-          event_time_text = re.sub(r"\b7 PM","7PM",event_time_text)
-          event_time_text = re.sub(r"\b8 PM","8PM",event_time_text)
-          event_time_text = re.sub(r"\b9 PM","9PM",event_time_text)
-          event_time_text = re.sub(r"\b10 PM","10PM",event_time_text)
+          event_time_text = adjust_event_time_text(event_time_text)
           print(event_time_text)
           fulldatetime = parse_event_datetime(event_date_text,event_time_text)
           print(fulldatetime)
