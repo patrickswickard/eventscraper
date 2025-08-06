@@ -326,6 +326,7 @@ all_venue_dict = {
   'Luna Garden (1616 Thames St)':'Sound Garden',
   'Lwn Sphere (4518 Raspe Ave)':'4518 Raspe Ave',
   'Lwnsphere (4518 Raspe Ave)':'4518 Raspe Ave',
+  'Lwnsphere (DM bands for address)':'4518 Raspe Ave',
   'M&T Bank Exchange':'M&T Bank Exchange',
   'M&amp;T Bank Exchange':'M&T Bank Exchange',
   'M.A.P. Technologies':'MAP Technologies',
